@@ -16,12 +16,14 @@ int servoPins[] =  {8,  9,  10, 11, 12};
 const int arrayLength = int(sizeof(sensorPins)/sizeof(int));
 int sensorValues[arrayLength];  //this way we only have to define where the sensors are
 Servo servos[arrayLength];
+int servoLocations[arrayLength];
 
 
 int ByteReceived = -1;    // variable that holds what bytes are received from serial
 int bound = 500;          //The boundary that constitutes being on something; arbitrary needs to be determined
 int newBound = 0;        //The new bound before max/min are taken into account
 int finalDegree = 90;
+int minDegree = 0;
 
 // Create the motor shield object with the default I2C address; not needed for now
 //Adafruit_MotorShield AFMS = Adafruit_MotorShield();
@@ -41,7 +43,8 @@ void setup() {
   //mount Servos and set to 0 degrees
   for(int i = 0; i < arrayLength; i++){
     servos[i].attach(servoPins[i]);
-    servos[i].write(0);
+    servos[i].write(minDegree);
+    servoLocations[i] = minDegree;
   }
   
 }
@@ -137,9 +140,11 @@ void player() {
     sensorValues[i] = digitalRead(sensorPins[i]);
     if(sensorValues[i] < bound){
       servos[i].write(finalDegree);
+      servoLocations[i] = finalDegree;
     }
     else{
-      servos[i].write(0); //One of the few hardcoded things here, sorry.
+      servos[i].write(minDegree); //One of the few hardcoded things here, sorry.
+      servoLocations[i] = minDegree;
     }
   }
 }
@@ -164,6 +169,9 @@ void printSensorInputs() {
     Serial.print(i);
     Serial.print("\t \t");
     Serial.print(sensorValues[i]);
+    Serial.print("Servo Location: ");
+    Serial.print("\t \t");
+    Serial.print(servoLocations[i]);
     Serial.println("");
   }
 }

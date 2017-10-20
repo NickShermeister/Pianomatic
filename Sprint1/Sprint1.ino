@@ -21,6 +21,7 @@ Servo servos[arrayLength];
 int ByteReceived = -1;    // variable that holds what bytes are received from serial
 int bound = 500;          //The boundary that constitutes being on something; arbitrary needs to be determined
 int newBound = 0;        //The new bound before max/min are taken into account
+int finalDegree = 90;
 
 // Create the motor shield object with the default I2C address; not needed for now
 //Adafruit_MotorShield AFMS = Adafruit_MotorShield();
@@ -36,9 +37,11 @@ void setup() {
 //  AFMS.begin();  // create with the default frequency 1.6KHz
   printHelp();   // print the key
   printOutput(); // print what is printed in each of the four columns
-  //mount Servos
+  
+  //mount Servos and set to 0 degrees
   for(int i = 0; i < arrayLength; i++){
     servos[i].attach(servoPins[i]);
+    servos[i].write(0);
   }
   
 }
@@ -106,6 +109,22 @@ void loop() {
       //Change the bound, maxing at 1000.
       bound = newBound % 1001;
     }
+
+    //Change how many degrees the servo turns
+    else if (ByteReceived == '7'){
+      Serial.println("What do you want the degree to be?");
+      while (!(Serial.available())) {
+        delay(20);
+      }
+      
+      //Get the int that was sent via serial
+      ByteReceived = Serial.parseInt();
+      Serial.println();
+      newBound = int(ByteReceived);
+      
+      //Change the bound, maxing at 179.
+      finalDegree = newBound % 180;
+    }
   }
  
   delay(25);  //delay so as not to have the arduino run at its full speed (there is no point)
@@ -114,7 +133,15 @@ void loop() {
 
 //Main playing function
 void player() {
-  
+  for(int i = 0; i < arrayLength; i++){
+    sensorValues[i] = digitalRead(sensorPins[i]);
+    if(sensorValues[i] < bound){
+      servos[i].write(finalDegree);
+    }
+    else{
+      servos[i].write(0); //One of the few hardcoded things here, sorry.
+    }
+  }
 }
 
 
@@ -132,5 +159,11 @@ void printOutput(){
 
 //The function to print the sensor values (kept it in here so we aren't always printing).
 void printSensorInputs() {
-  return ;
+  for(int i = 0; i < arrayLength; i++){
+    Serial.print("Value number: ");
+    Serial.print(i);
+    Serial.print("\t \t");
+    Serial.print(sensorValues[i]);
+    Serial.println("");
+  }
 }

@@ -1,0 +1,10 @@
+Instructions for adding blog post.
+----------------------------------
+
+
+1) After reading these instructions, open the blog.html file with a text editor.
+2) Locate the comments I added for more information.
+3) To create a blog post without an image, copy the code from "<tr>" to </tr> that I marked in the code. Paste it below the last </tr> and enter your text and the date.
+4) To create a blog post with an image, do the same thing except copy the code I marked for using an image. Paste it below the last </tr> and add your text and the date. Then import your photo to the /images directory and link it in the "src=" section.
+
+*** The location of the <tr> tags is marked in the blog file.

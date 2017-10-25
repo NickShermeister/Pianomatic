@@ -8,8 +8,10 @@
 //Define variables
 
 //ONLY HARDCODED VARIABLES; make sure they correleate 1:1. If they don't, everything breaks.
-int sensorPins[] = {A0, A1, A2, A3, A4};
-int servoPins[] =  {8,  9,  10, 11, 12};
+//int sensorPins[] = {A0, A1, A2, A3, A4};
+//int servoPins[] =  {8,  9,  10, 11, 12};
+int sensorPins[] = {A0};
+int servoPins[] = {8};
 //TODO: DIGITAL INTERRUPT (haven't discussed as group yet)
 
 //Normal variables
@@ -21,9 +23,12 @@ int servoLocations[arrayLength];
 
 int ByteReceived = -1;    // variable that holds what bytes are received from serial
 int bound = 500;          //The boundary that constitutes being on something; arbitrary needs to be determined
-int newBound = 0;        //The new bound before max/min are taken into account
+int tempInput = 0;        //The new bound before max/min are taken into account
 int finalDegree = 90;
 int minDegree = 0;
+unsigned long previousMillis = 0;
+int interval = 100;
+
 
 // Create the motor shield object with the default I2C address; not needed for now
 //Adafruit_MotorShield AFMS = Adafruit_MotorShield();
@@ -107,10 +112,10 @@ void loop() {
       //Get the int that was sent via serial
       ByteReceived = Serial.parseInt();
       Serial.println();
-      newBound = int(ByteReceived);
+      tempInput = int(ByteReceived);
       
       //Change the bound, maxing at 1000.
-      bound = newBound % 1001;
+      bound = tempInput % 1001;
     }
 
     //Change how many degrees the servo turns
@@ -123,10 +128,19 @@ void loop() {
       //Get the int that was sent via serial
       ByteReceived = Serial.parseInt();
       Serial.println();
-      newBound = int(ByteReceived);
+      tempInput = int(ByteReceived);
       
       //Change the bound, maxing at 179.
-      finalDegree = newBound % 180;
+      finalDegree = tempInput % 180;
+    }
+
+    else if (ByteReceived == '8'){
+      Serial.println("What do you want the delay between outputs (in ms)");
+      ByteReceived = Serial.parseInt();
+      Serial.println();
+      tempInput = int(ByteReceived);
+
+      interval = tempInput;
     }
   }
  
@@ -137,7 +151,7 @@ void loop() {
 //Main playing function
 void player() {
   for(int i = 0; i < arrayLength; i++){
-    sensorValues[i] = digitalRead(sensorPins[i]);
+    sensorValues[i] = analogRead(sensorPins[i]);
     if(sensorValues[i] < bound){
       servos[i].write(finalDegree);
       servoLocations[i] = finalDegree;
@@ -152,7 +166,16 @@ void player() {
 
 //Print the help key
 void printHelp() {
-  
+  Serial.println("The key for changing modes/variables in this system is:');
+  Serial.println("0: System at rest; nonverbose output.");
+  Serial.println("1: System at rest; verbose output.");
+  Serial.println("2: System active; nonverbose output.");
+  Serial.println("3: System active; verbose output."");
+  Serial.println("4: Print this help table again.");
+  Serial.println("5: When mass printing values, can print which columns align to which values.");
+  Serial.println("6: Change the bound for what constitutes being on a note (max of 1000, min of 0).");
+  Serial.println("7: Changes how many degrees the servo turns when pushing down a key (max of 180, min of 0).");
+  Serial.println("8: Changes how frequently you print sensor values.");
 }
 
 
@@ -164,14 +187,21 @@ void printOutput(){
 
 //The function to print the sensor values (kept it in here so we aren't always printing).
 void printSensorInputs() {
-  for(int i = 0; i < arrayLength; i++){
-    Serial.print("Value number: ");
-    Serial.print(i);
-    Serial.print("\t \t");
-    Serial.print(sensorValues[i]);
-    Serial.print("Servo Location: ");
-    Serial.print("\t \t");
-    Serial.print(servoLocations[i]);
-    Serial.println("");
+    unsigned long currentMillis = millis();
+
+  //Check to see if there is a large enough gap since the last button update
+  if ((currentMillis - previousMillis) >= interval){
+    for(int i = 0; i < arrayLength; i++){
+      Serial.print("Array position: ");
+      Serial.print(i);
+      Serial.print("; \t");
+      Serial.print(sensorValues[i]);
+      Serial.print("\t\tServo Location: ");
+      Serial.print("\t");
+      Serial.print(servoLocations[i]);
+      Serial.println("");
+        } 
+    previousMillis = currentMillis;
+  
   }
 }

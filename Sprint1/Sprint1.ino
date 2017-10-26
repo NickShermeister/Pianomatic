@@ -8,10 +8,10 @@
 //Define variables
 
 //ONLY HARDCODED VARIABLES; make sure they correleate 1:1. If they don't, everything breaks.
-//int sensorPins[] = {A0, A1, A2, A3, A4};
-//int servoPins[] =  {8,  9,  10, 11, 12};
-int sensorPins[] = {A0};
-int servoPins[] = {8};
+int sensorPins[] = {A0, A1, A2, A3, A4};
+int servoPins[] =  {8,  9,  10, 11, 12};
+//int sensorPins[] = {A0};
+//int servoPins[] = {8};
 //TODO: DIGITAL INTERRUPT (haven't discussed as group yet)
 
 //Normal variables
@@ -166,11 +166,11 @@ void player() {
 
 //Print the help key
 void printHelp() {
-  Serial.println("The key for changing modes/variables in this system is:');
+  Serial.println("The key for changing modes/variables in this system is:");
   Serial.println("0: System at rest; nonverbose output.");
   Serial.println("1: System at rest; verbose output.");
   Serial.println("2: System active; nonverbose output.");
-  Serial.println("3: System active; verbose output."");
+  Serial.println("3: System active; verbose output.");
   Serial.println("4: Print this help table again.");
   Serial.println("5: When mass printing values, can print which columns align to which values.");
   Serial.println("6: Change the bound for what constitutes being on a note (max of 1000, min of 0).");

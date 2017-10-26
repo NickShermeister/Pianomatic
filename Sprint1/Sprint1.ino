@@ -10,8 +10,7 @@
 //ONLY HARDCODED VARIABLES; make sure they correleate 1:1. If they don't, everything breaks.
 int sensorPins[] = {A0, A1, A2, A3}; //{A0, A1, A2, A3, A4};
 int servoPins[] =  {8,  9,  10, 11}; //{8,  9,  10, 11, 12};
-//int sensorPins[] = {A0};
-//int servoPins[] = {8};
+bool servoStates[] = {true, false, false, false};
 //TODO: DIGITAL INTERRUPT (haven't discussed as group yet)
 
 //Normal variables
@@ -24,11 +23,12 @@ int servoLocations[arrayLength];
 int ByteReceived = -1;    // variable that holds what bytes are received from serial
 int bound = 500;          //The boundary that constitutes being on something; arbitrary needs to be determined
 int tempInput = 0;        //The new bound before max/min are taken into account
-int finalDegree = 90;
-int minDegree = 0;
+int finalDegree = 45;
+int minDegree = 90;
 unsigned long previousMillis = 0;
 int interval = 1000;
 int pos;
+int tempAngle = 0;
 
 
 // Create the motor shield object with the default I2C address; not needed for now
@@ -121,7 +121,22 @@ void loop() {
 
     //Change how many degrees the servo turns
     else if (ByteReceived == '7'){
-      Serial.println("What do you want the degree to be?");
+      Serial.println("What do you want the rest degree to be?");
+      while (!(Serial.available())) {
+        delay(20);
+      }
+      
+      //Get the int that was sent via serial
+      ByteReceived = Serial.parseInt();
+      Serial.println();
+      tempInput = int(ByteReceived);
+      
+      //Change the bound, maxing at 179.
+      minDegree = tempInput % 180;
+    }
+
+    else if (ByteReceived == '8'){
+      Serial.println("What do you want the hit degree to be?");
       while (!(Serial.available())) {
         delay(20);
       }
@@ -135,7 +150,7 @@ void loop() {
       finalDegree = tempInput % 180;
     }
 
-    else if (ByteReceived == '8'){
+    else if (ByteReceived == '9'){
       Serial.println("What do you want the delay between outputs (in ms)");
       
       while (!(Serial.available())) {
@@ -149,7 +164,16 @@ void loop() {
       interval = tempInput;
     }
 
-    else if (ByteReceived == '9'){
+    
+
+    else if (ByteReceived == 'A'){
+      Serial.println("One Reading:");
+      delay(100);
+      
+      printSensorInputs(true);
+    }
+
+    else if (ByteReceived == 'B'){
       Serial.println("What servo do you want to test? (location in array)");
       
       while (!(Serial.available())) {
@@ -162,13 +186,6 @@ void loop() {
 
       sweep(tempInput);
     }
-
-    else if (ByteReceived == 'A'){
-      Serial.println("One Reading:");
-      delay(100);
-      
-      printSensorInputs(true);
-    }
   }
  
   delay(25);  //delay so as not to have the arduino run at its full speed (there is no point)
@@ -179,14 +196,24 @@ void loop() {
 void player() {
   for(int i = 0; i < arrayLength; i++){
     sensorValues[i] = analogRead(sensorPins[i]);
-    if(sensorValues[i] < bound){
-      servos[i].write(finalDegree);
-      servoLocations[i] = finalDegree;
+    if(!servoStates[i]) {
+      if(sensorValues[i] < bound){
+        tempAngle = finalDegree;
+      }
+      else{
+        tempAngle = minDegree;
+      }
     }
-    else{
-      servos[i].write(minDegree); //One of the few hardcoded things here, sorry.
-      servoLocations[i] = minDegree;
+    else {
+      if(sensorValues[i] < bound){
+        tempAngle = 180-finalDegree;
+      }
+      else{
+        tempAngle = 180-minDegree;
+      }
     }
+    servos[i].write(tempAngle);
+    servoLocations[i] = tempAngle;
   }
 }
 
@@ -201,10 +228,12 @@ void printHelp() {
   Serial.println("4: Print this help table again.");
   Serial.println("5: When mass printing values, can print which columns align to which values.");
   Serial.println("6: Change the bound for what constitutes being on a note (max of 1000, min of 0).");
-  Serial.println("7: Changes how many degrees the servo turns when pushing down a key (max of 180, min of 0).");
-  Serial.println("8: Changes how frequently you print sensor values.");
-  Serial.println("9: Run sweep on an individual servo to make sure it's working.");
+  Serial.println("7: Changes the servos' start angle (max of 180, min of 0).");
+  Serial.println("8: Changes the servos' end angle (max of 180, min of 0).");
+  Serial.println("9: Changes how frequently you print sensor values.");
   Serial.println("A: Read in once from all sensors.");
+  Serial.println("B: Run sweep on an individual servo to make sure it's working.");
+
 }
 
 
@@ -214,20 +243,39 @@ void printOutput(){
 }
 
 void sweep(int location) {
-  for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
-    // in steps of 1 degree
-    servos[location].write(pos);              // tell servo to go to position in variable 'pos'
-    if ((Serial.available())) {
-        break;
-      }
-    delay(15);                       // waits 15ms for the servo to reach the position
+  if(!servoStates[location]) {
+    for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+      // in steps of 1 degree
+      servos[location].write(pos);              // tell servo to go to position in variable 'pos'
+      if ((Serial.available())) {
+          break;
+        }
+      delay(15);                       // waits 15ms for the servo to reach the position
+    }
+    for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+      servos[location].write(pos);              // tell servo to go to position in variable 'pos'
+      if ((Serial.available())) {
+          break;
+        }
+      delay(15);                       // waits 15ms for the servo to reach the position
+    }
   }
-  for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
-    servos[location].write(pos);              // tell servo to go to position in variable 'pos'
-    if ((Serial.available())) {
-        break;
-      }
-    delay(15);                       // waits 15ms for the servo to reach the position
+  else {
+    for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+      servos[location].write(pos);              // tell servo to go to position in variable 'pos'
+      if ((Serial.available())) {
+          break;
+        }
+      delay(15);                       // waits 15ms for the servo to reach the position
+    }
+    for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+      // in steps of 1 degree
+      servos[location].write(pos);              // tell servo to go to position in variable 'pos'
+      if ((Serial.available())) {
+          break;
+        }
+      delay(15);                       // waits 15ms for the servo to reach the position
+    }
   }
 }
 

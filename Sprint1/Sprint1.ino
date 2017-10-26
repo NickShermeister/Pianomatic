@@ -8,8 +8,8 @@
 //Define variables
 
 //ONLY HARDCODED VARIABLES; make sure they correleate 1:1. If they don't, everything breaks.
-int sensorPins[] = {A0, A1, A2, A3, A4};
-int servoPins[] =  {8,  9,  10, 11, 12};
+int sensorPins[] = {A0, A1, A2, A3}; //{A0, A1, A2, A3, A4};
+int servoPins[] =  {8,  9,  10, 11}; //{8,  9,  10, 11, 12};
 //int sensorPins[] = {A0};
 //int servoPins[] = {8};
 //TODO: DIGITAL INTERRUPT (haven't discussed as group yet)
@@ -27,7 +27,8 @@ int tempInput = 0;        //The new bound before max/min are taken into account
 int finalDegree = 90;
 int minDegree = 0;
 unsigned long previousMillis = 0;
-int interval = 100;
+int interval = 1000;
+int pos;
 
 
 // Create the motor shield object with the default I2C address; not needed for now
@@ -65,7 +66,7 @@ void loop() {
   //Wait, verbose output
   else if (ByteReceived == '1') //Stay still.
   {
-    printSensorInputs();
+    printSensorInputs(false);
   }
 
   //Play, nonverbose output
@@ -78,7 +79,7 @@ void loop() {
   else if (ByteReceived == '3')
   {
     player();
-    printSensorInputs();
+    printSensorInputs(false);
   }
 
   //If there is something to be read from the serial port:
@@ -136,11 +137,37 @@ void loop() {
 
     else if (ByteReceived == '8'){
       Serial.println("What do you want the delay between outputs (in ms)");
+      
+      while (!(Serial.available())) {
+        delay(20);
+      }
+      
       ByteReceived = Serial.parseInt();
       Serial.println();
       tempInput = int(ByteReceived);
 
       interval = tempInput;
+    }
+
+    else if (ByteReceived == '9'){
+      Serial.println("What servo do you want to test? (location in array)");
+      
+      while (!(Serial.available())) {
+        delay(20);
+      }
+      
+      ByteReceived = Serial.parseInt();
+      Serial.println();
+      tempInput = int(ByteReceived) % arrayLength;
+
+      sweep(tempInput);
+    }
+
+    else if (ByteReceived == 'A'){
+      Serial.println("One Reading:");
+      delay(100);
+      
+      printSensorInputs(true);
     }
   }
  
@@ -176,6 +203,8 @@ void printHelp() {
   Serial.println("6: Change the bound for what constitutes being on a note (max of 1000, min of 0).");
   Serial.println("7: Changes how many degrees the servo turns when pushing down a key (max of 180, min of 0).");
   Serial.println("8: Changes how frequently you print sensor values.");
+  Serial.println("9: Run sweep on an individual servo to make sure it's working.");
+  Serial.println("A: Read in once from all sensors.");
 }
 
 
@@ -184,13 +213,31 @@ void printOutput(){
   return ;
 }
 
+void sweep(int location) {
+  for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+    // in steps of 1 degree
+    servos[location].write(pos);              // tell servo to go to position in variable 'pos'
+    if ((Serial.available())) {
+        break;
+      }
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+  for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+    servos[location].write(pos);              // tell servo to go to position in variable 'pos'
+    if ((Serial.available())) {
+        break;
+      }
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+}
+
 
 //The function to print the sensor values (kept it in here so we aren't always printing).
-void printSensorInputs() {
+void printSensorInputs(bool Force) {
     unsigned long currentMillis = millis();
 
   //Check to see if there is a large enough gap since the last button update
-  if ((currentMillis - previousMillis) >= interval){
+  if ((currentMillis - previousMillis) >= interval || Force){
     for(int i = 0; i < arrayLength; i++){
       Serial.print("Array position: ");
       Serial.print(i);

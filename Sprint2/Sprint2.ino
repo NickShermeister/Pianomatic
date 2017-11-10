@@ -1,16 +1,15 @@
 //Include needed libraries
 #include <Servo.h>
-//#include <Wire.h>
 //#include <Adafruit_MotorShield.h>
 //#include "utility/Adafruit_MS_PWMServoDriver.h"
 
 
 //Define variables
-
+//Every servo will handle 6 IR sensors/servos
 //ONLY HARDCODED VARIABLES; make sure they correleate 1:1. If they don't, everything breaks.
-int sensorPins[] = {A0, A1, A2, A3}; //{A0, A1, A2, A3, A4};
-int servoPins[] =  {8,  9,  10, 11}; //{8,  9,  10, 11, 12};
-bool servoStates[] = {true, false, false, false};
+int sensorPins[] = {A0, A1, A2, A3, A4, A5};
+int servoPins[] =  {8,  9,  10, 11, 12, 13};
+bool servoDirection = true; //We will have two different directions, but each servo will be constant. Therefore, we only need one bool to know what direction the servo should be set up in.
 //TODO: DIGITAL INTERRUPT (haven't discussed as group yet)
 
 //Normal variables
@@ -23,8 +22,8 @@ int servoLocations[arrayLength];
 int ByteReceived = -1;    // variable that holds what bytes are received from serial
 int bound = 500;          //The boundary that constitutes being on something; arbitrary needs to be determined
 int tempInput = 0;        //The new bound before max/min are taken into account
-int finalDegree = 45;
-int minDegree = 90;
+int finalDegree = 0;
+int highDegree = 90;
 unsigned long previousMillis = 0;
 int interval = 1000;
 int pos;
@@ -49,8 +48,14 @@ void setup() {
   //mount Servos and set to 0 degrees
   for(int i = 0; i < arrayLength; i++){
     servos[i].attach(servoPins[i]);
-    servos[i].write(minDegree);
-    servoLocations[i] = minDegree;
+    if (servoDirection) {
+      servos[i].write(finalDegree);
+    }
+    else {
+      servos[i].write(highDegree);
+    }
+    
+    servoLocations[i] = highDegree;
   }
   
 }
@@ -132,7 +137,7 @@ void loop() {
       tempInput = int(ByteReceived);
       
       //Change the bound, maxing at 179.
-      minDegree = tempInput % 180;
+      highDegree = tempInput % 180;
     }
 
     else if (ByteReceived == '8'){
@@ -196,12 +201,12 @@ void loop() {
 void player() {
   for(int i = 0; i < arrayLength; i++){
     sensorValues[i] = analogRead(sensorPins[i]);
-    if(!servoStates[i]) {
+    if(!servoDirection) {
       if(sensorValues[i] > bound){
         tempAngle = finalDegree;
       }
       else{
-        tempAngle = minDegree;
+        tempAngle = highDegree;
       }
     }
     else {
@@ -209,7 +214,7 @@ void player() {
         tempAngle = 180-finalDegree;
       }
       else{
-        tempAngle = 180-minDegree;
+        tempAngle = 180-highDegree;
       }
     }
     servos[i].write(tempAngle);
@@ -243,7 +248,7 @@ void printOutput(){
 }
 
 void sweep(int location) {
-  if(!servoStates[location]) {
+  if(!servoDirection) {
     for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
       // in steps of 1 degree
       servos[location].write(pos);              // tell servo to go to position in variable 'pos'

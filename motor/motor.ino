@@ -22,9 +22,7 @@ void setup() {
   //AFMS.begin(1000);  // OR with a different frequency, say 1KHz
   
    myMotor->setSpeed(100);  
-myMotor->step(200, FORWARD); 
-
-  
+myMotor->step(200, FORWARD);   
  
   
 }
@@ -32,6 +30,6 @@ myMotor->step(200, FORWARD);
 void loop() {
   
  myMotor->step(200, FORWARD); 
-delay(100);
+delay(10);
 
 }

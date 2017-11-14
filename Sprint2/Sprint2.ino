@@ -10,6 +10,14 @@
 int sensorPins[] = {A0, A1, A2, A3, A4, A5};
 int servoPins[] =  {8,  9,  10, 11, 12, 13};
 bool servoDirection = true; //We will have two different directions, but each servo will be constant. Therefore, we only need one bool to know what direction the servo should be set up in.
+int servoBounds[2][6] = { //From leftmost aruinos
+  {800, 800, 800, 800, 850, 800},
+  {800, 800, 800, 800, 800, 800},
+};
+int arduinoNumber = 0;
+int tempServo = 0;
+
+
 //TODO: DIGITAL INTERRUPT (haven't discussed as group yet)
 
 //Normal variables
@@ -20,7 +28,7 @@ int servoLocations[arrayLength];
 
 
 int ByteReceived = -1;    // variable that holds what bytes are received from serial
-int bound = 900;          //The boundary that constitutes being on something; arbitrary needs to be determined
+int bound = 850;          //The boundary that constitutes being on something; arbitrary needs to be determined
 int tempInput = 0;        //The new bound before max/min are taken into account
 int finalDegree = 80;
 int highDegree = 90;
@@ -59,6 +67,17 @@ void setup() {
     
     servoLocations[i] = highDegree;
   }
+
+  Serial.println("What Arduino number is this?");
+      while (!(Serial.available())) {
+        delay(20);
+      }
+      
+      //Get the int that was sent via serial
+      ByteReceived = Serial.parseInt();
+      Serial.println();
+      tempInput = int(ByteReceived);
+      arduinoNumber = tempInput;
   
 }
 
@@ -111,6 +130,19 @@ void loop() {
     //change bound for what constitutes being on a note (max 1000)
     else if (ByteReceived == '6') 
     {
+      Serial.println("Which servo do you want to change the bound of?");
+      //Wait until there's another input
+      while (!(Serial.available())) {
+        delay(20);
+      }
+      
+      //Get the int that was sent via serial
+      ByteReceived = Serial.parseInt();
+      Serial.println();
+      tempInput = int(ByteReceived);
+
+
+      
       Serial.println("What do you want the new bound to be (0-1000)?");
       //Wait until there's another input
       while (!(Serial.available())) {
@@ -138,7 +170,7 @@ void loop() {
       Serial.println();
       tempInput = int(ByteReceived);
       
-      //Change the bound, maxing at 179.
+      //Change the servo max degree, maxing at 179.
       highDegree = tempInput % 180;
     }
 
@@ -153,7 +185,7 @@ void loop() {
       Serial.println();
       tempInput = int(ByteReceived);
       
-      //Change the bound, maxing at 179.
+      //Change the servo min degree, maxing at 179.
       finalDegree = tempInput % 180;
     }
 
@@ -204,7 +236,7 @@ void player() {
   for(int i = 0; i < arrayLength; i++){
     sensorValues[i] = analogRead(sensorPins[i]);
     if(!servoDirection) {
-      if(sensorValues[i] > bound){
+      if(sensorValues[i] > servoBounds[arduinoNumber][i]){
         tempAngle = finalDegree;
       }
       else{
@@ -212,7 +244,7 @@ void player() {
       }
     }
     else {
-      if(sensorValues[i] > bound){
+      if(sensorValues[i] > servoBounds[arduinoNumber][i]){
         tempAngle = 180-finalDegree;
       }
       else{
@@ -234,7 +266,7 @@ void printHelp() {
   Serial.println("3: System active; verbose output.");
   Serial.println("4: Print this help table again.");
   Serial.println("5: When mass printing values, can print which columns align to which values.");
-  Serial.println("6: Change the bound for what constitutes being on a note (max of 1000, min of 0).");
+  Serial.println("6: Change the bound for what constitutes being on a note for a servo on this Arduino (max of 1000, min of 0).");
   Serial.println("7: Changes the servos' start angle (max of 180, min of 0).");
   Serial.println("8: Changes the servos' end angle (max of 180, min of 0).");
   Serial.println("9: Changes how frequently you print sensor values.");

@@ -127,20 +127,25 @@ void loop() {
       
       printSensorInputs(true);
     }
-//
-//    else if (ByteReceived == 'B'){
-//      Serial.println("What solenoid do you want to test? (location in array)");
-//      
-//      while (!(Serial.available())) {
-//        delay(20);
-//      }
-//      
-//      ByteReceived = Serial.parseInt();
-//      Serial.println();
-//      tempInput = int(ByteReceived) % arrayLength;
-//
-//      sweep(tempInput);
-//    }
+
+    else if (ByteReceived == 'B'){
+      Serial.println("What solenoid do you want to test? (location in array)");
+      
+      while (!(Serial.available())) {
+        delay(20);
+      }
+      
+      ByteReceived = Serial.parseInt();
+      Serial.println();
+      tempInput = int(ByteReceived) % arrayLength;
+
+      if (tempInput < 8){
+        Serial.println(sensorValueMultiplexer[tempInput]);
+      }
+      else{
+        Serial.println(sensorValue[tempInput-8]);
+      }
+    }
   }
  
   delay(20);  //delay so as not to have the arduino run at its full speed (there is no point)
@@ -202,7 +207,7 @@ void printHelp() {
   Serial.println("5: When mass printing values, can print which columns align to which values.");
   Serial.println("9: Changes how frequently you print sensor values.");
   Serial.println("A: Read in once from all sensors.");
-//  Serial.println("B: Test individual solenoid.");
+  Serial.println("B: Test individual solenoid.");
 }
 
 

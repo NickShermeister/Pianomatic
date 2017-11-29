@@ -7,16 +7,15 @@
 //Define variables
 //Every servo will handle 6 IR sensors/servos
 //ONLY HARDCODED VARIABLES; make sure they correleate 1:1. If they don't, everything breaks.
-int sensorPins[] = {A0, A1, A2, A3, A4, A5};
+int sensorPins[] = {A0, A1, A2, A3, A4};
 int servoPins[] =  {8,  9,  10, 11, 12, 13};
-bool allServoDirections[2][6] = {
-  {true,  true,  true,  true,  true,  true}
-  {false, false, false, false, false, false}
-};
+bool allServoDirections[] = {true, false};
 bool servoDirection; //We will have two different directions, but each servo will be constant. Therefore, we only need one bool to know what direction the servo should be set up in.
-int servoBounds[2][6] = { //From leftmost aruinos
-  {800, 800, 800, 800, 850, 800},
-  {800, 800, 800, 800, 800, 800},
+int servoBounds[12] = { //From leftmost aruinos
+  800, 800, 800, 800, 850, 800, 800, 800, 800, 800, 800, 800
+  //0   1    2    3    4    5    6    7    8    9   10   A6     //Output to servo
+  //M1 M2    M3  M4   M5   M6    M7   M8  A2   A3   A4   A5     //Input from IR sensor
+  //0
 };
 int numArduinos = 2; //HARDCODED
 int arduinoNumber = 0;
@@ -83,7 +82,7 @@ void setup() {
   Serial.println();
   tempInput = int(ByteReceived);
   arduinoNumber = tempInput % numArduinos;
-//  servoDirection = allServoDirections[arduinoNumber]; //Use if a servo has all turning in the same direction
+  servoDirection = allServoDirections[arduinoNumber];
 }
 
 
@@ -239,7 +238,6 @@ void loop() {
 void player() {
   for(int i = 0; i < arrayLength; i++){
     sensorValues[i] = analogRead(sensorPins[i]);
-    servoDirection = allServoDirections[arduinoNumber][i];
     if(!servoDirection) {
       if(sensorValues[i] > servoBounds[arduinoNumber][i]){
         tempAngle = finalDegree;
@@ -287,7 +285,6 @@ void printOutput(){
 }
 
 void sweep(int location) {
-  servoDirection = allServoDirections[arduinoNumber][location];
   if(!servoDirection) {
     for (pos = 0; pos < 179; pos += 2) { // goes from 0 degrees to 180 degrees
       // in steps of 1 degree

@@ -10,11 +10,14 @@
 
 //Multiplexer constants
 const int selectPins[3] = {11, 12, 13};
-const int zInput = A5;
+const int zInput = A0;
 
 //Other pin constants
 int sensorPins[] = {A1, A2, A3, A4};
-int solenoidPins[] =  {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, A0};
+int sensorBounds[] = {850, 850, 850, 850};
+int multiplexerSensorBounds[] = {850, 850, 850, 850, 850, 850, 850, 850};
+int solenoidPins[] =  {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, A5};
+
 int tempServo = 0;
 const int arrayLength = 12;     //Number of notes in an octave
 
@@ -28,6 +31,7 @@ int bound = 850;          //The boundary that constitutes being on something; ar
 int tempInput = 0;        //The new bound before max/min are taken into account
 unsigned long previousMillis = 0; //
 int interval = 1000;      //Interval between test reads
+String toPrint = "";
 
 
 
@@ -102,7 +106,11 @@ void loop() {
     else if (ByteReceived == '5') {
       printOutput();
     }
-    
+
+    //Change a bound
+    else if (ByteReceived == '6'){
+      
+    }
     
     
     else if (ByteReceived == '9'){
@@ -140,15 +148,15 @@ void loop() {
       tempInput = int(ByteReceived) % arrayLength;
 
       if (tempInput < 8){
-        Serial.println(sensorValueMultiplexer[tempInput]);
+        Serial.println(sensorValuesMultiplexer[tempInput]);
       }
       else{
-        Serial.println(sensorValue[tempInput-8]);
+        Serial.println(sensorValues[tempInput-8]);
       }
     }
   }
  
-  delay(20);  //delay so as not to have the arduino run at its full speed (there is no point)
+  delay(500);  //delay so as not to have the arduino run at its full speed (there is no point)
 }
 
 
@@ -159,28 +167,53 @@ void player() {
     selectMultiplexerPin(i);
     sensorValuesMultiplexer[i] = analogRead(zInput);
     //Change state to low/high
-    if(sensorValuesMultiplexer[i] < bound){
+    if(sensorValuesMultiplexer[i] < multiplexerSensorBounds[i]){
       digitalWrite(solenoidPins[i], HIGH);
+      if (ByteReceived == '3'){
+        printState(i, true);
+      }
     }
     else {
       digitalWrite(solenoidPins[i], LOW);
+      if (ByteReceived == '3'){
+        printState(i, false);
+      }
     }
   }
   
   //Then get values for the other 4
   for (int i = 0; i < 4; i++){
     sensorValues[i]=analogRead(sensorPins[i]);
-    if(sensorValues[i] < bound){
+    if(sensorValues[i] < sensorBounds[i]){
       digitalWrite(solenoidPins[i+8], HIGH);
+      if (ByteReceived == '3'){
+        printState(i+8, true);
+      }
     }
     else {
       digitalWrite(solenoidPins[i+8], LOW);
+      if (ByteReceived == '3'){
+        printState(i+8, false);
+      }
     }
   }
+}
 
-  //Now loop through and 
-  
-  
+void printState(int pin, bool state) {
+  if (state == true){
+    toPrint += "Pin no: ";
+    toPrint += String(pin);
+    toPrint += " with output: HIGH";
+    Serial.println(toPrint);
+    toPrint = "";
+  }
+  else {
+    toPrint += "Pin no: ";
+    toPrint += String(pin);
+    toPrint += " with output: LOW";
+    Serial.println(toPrint);
+    toPrint = "";
+  }
 }
 
 void selectMultiplexerPin(int pin) {
@@ -237,6 +270,7 @@ void printSensorInputs(bool Force) {
       Serial.print(sensorValues[i]);
       Serial.println("");
     }
+    Serial.println("\n\n");
     previousMillis = currentMillis;
   
   }

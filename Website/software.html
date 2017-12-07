@@ -32,12 +32,11 @@
 						<!-- Content -->
 							<section id="content" class="main">
 							<h2>Convert Midi</h2>
-							
-							<hr />
-							<h2>Mechanical</h2>
-							<hr />
-							<h2>Software</h2>
-							<hr />
+								We created a program in C++ that allowed us to take Midi files and convert them to 'drawn' notes that we could print out on a roll.
+
+								We input a Midi file and copy it to a memory buffer that we can parse through and modify. We parse out information from the header chunk and track chunks to get information such as tempo, notes, and note timing.
+
+								From this we output to a text file. We use the box unicode charactor to represent notes. Each charactor represents a quarter note so we fill in as many spaces and box unicode charactors to make up each note and blank space.
 
 							
 							</section>
@@ -46,27 +45,6 @@
 
 				<!-- Footer -->
 					<footer id="footer">
-					<!--	<section>
-							<h2>Aliquam sed mauris</h2>
-							<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">Learn More</a></li>
-							</ul>
-						</section>
-						<section>
-							<h2>Etiam feugiat</h2>
-							<dl class="alt">
-								<dt>Address</dt>
-								<dd>Olin College &bull; Needham, MA 02492 &bull; USA</dd>
-								<dt>Phone</dt>
-								<dd>(000) 000-0000 x 0000</dd>
-								<dt>Email</dt>
-								<dd><a href="#">information@untitled.tld</a></dd>
-							</dl>
-							<ul class="icons">
-								<li><a href="#" class="icon fa-github alt"><span class="label">GitHub</span></a></li>
-							</ul>
-						</section> -->
 						<p class="copyright">&copy; Copyright © 2017 PianoMatic </p>
 					</footer>
 

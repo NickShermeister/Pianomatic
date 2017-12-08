@@ -9,16 +9,19 @@
 //ONLY HARDCODED VARIABLES; make sure they correleate 1:1. If they don't, everything breaks.
 
 //Multiplexer constants
-const int selectPins[3] = {11, 12, 13};
+const int multiplexerPins[3] = {11, 12, 13};
 const int zInput = A0;
+const int demultiplexerPins[3] = {8, 9, 10};
+// w b w b w w b w 
+const int zOutput = 7;
 
 //Other pin constants
 int sensorPins[] = {A1, A2, A3, A4};
 int sensorBounds[] = {230, 480, 630, 320};
 int multiplexerSensorBounds[] = {200, 350, 350, 475, 340, 275, 475, 460};
-int solenoidPins[] =  {2, A0, 3, A0, 4, 5, A0, 6, A0, 7, A0, 8};
-//int solenoidPins[] =  {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, A5};
-//w b w b w w b w b w b w 
+int solenoidPins[] =  {3, 4, 5, 6};
+//b w b w 
+
 int tempServo = 0;
 const int arrayLength = 12;     //Number of notes in an octave
 
@@ -31,7 +34,7 @@ int ByteReceived = -1;    // variable that holds what bytes are received from se
 int bound = 800;          //The boundary that constitutes being on something; arbitrary needs to be determined
 int tempInput = 0;        //The new bound before max/min are taken into account
 unsigned long previousMillis = 0; //
-int interval = 1000;      //Interval between test reads
+int interval = 1100;      //Interval between test reads
 String toPrint = "";
 
 
@@ -41,31 +44,40 @@ void setup() {
   Serial.begin(9600); //Begin the serial so we can read from it/print to it
   printHelp();   // print the key
   printOutput(); // print what is printed in each of the four columns
-  
-  //mount Servos and set to 0 degrees
-  for(int i = 0; i < arrayLength; i++){
+
+  //For multiplexing, set the multiplexer setting pins
+  for (int i=0; i<3; i++)
+  {
+    pinMode(multiplexerPins[i], OUTPUT);
+    digitalWrite(multiplexerPins[i], LOW);
+  }
+   pinMode(zInput, INPUT);    //Set the pin where you get your info from
+
+  //Set normal IR sensor pins
+  for (int i =0; i<4; i++){
+    pinMode(sensorPins[i], INPUT);
+  }
+
+
+  //for demultiplexing, set the demultiplexer setting pins
+  for (int i=0; i<3; i++)
+  {
+    pinMode(demultiplexerPins[i], OUTPUT);
+    digitalWrite(demultiplexerPins[i], LOW);
+  }
+  pinMode(zOutput, OUTPUT);
+
+    //Set normal solenoid pins
+  for(int i = 0; i < 4; i++){     //4 are number of notes not being multiplexed
     pinMode(solenoidPins[i], OUTPUT);
     digitalWrite(solenoidPins[i], LOW);
   }
-
-  for (int i=0; i<3; i++)
-  {
-    pinMode(selectPins[i], OUTPUT);
-    digitalWrite(selectPins[i], LOW);
-  }
-
- pinMode(zInput, INPUT);
- for(int i = 0; i < 4; i ++)
- {
-  pinMode(sensorPins[i], INPUT);
- }
 
  
 }
 
 
 void loop() {
-  
   //Wait, nonverbose output
   if (ByteReceived == '0') {
     //pass
@@ -201,41 +213,28 @@ void player() {
   
   //First deal with multiplexer Serial.println(analogRead(zInput));
   for(int i = 0; i < 8; i++){
-    selectMultiplexerPin(i);
+    selectingPins(0, i);  //Mulitplexer pin selection
+    selectingPins(1, i); //Demultiplexer pin selection
     sensorValuesMultiplexer[i] = analogRead(zInput);
 
     
     //Change state to low/high
     if(sensorValuesMultiplexer[i] > multiplexerSensorBounds[i]){
-      digitalWrite(solenoidPins[i], HIGH);
-//      if (ByteReceived == '3'){
-//        printState(i, true);
-//      }
+      digitalWrite(zOutput, HIGH);
     }
     else {
-      digitalWrite(solenoidPins[i], LOW);
-//      if (ByteReceived == '3'){
-//        printState(i, false);
-//      }
+      digitalWrite(zOutput, LOW);
     }
   }
 
-
-  
   //Then get values for the other 4
   for (int i = 0; i < 4; i++){
     sensorValues[i]=analogRead(sensorPins[i]);
     if(sensorValues[i] > sensorBounds[i]){
-      digitalWrite(solenoidPins[i+8], HIGH);
-//      if (ByteReceived == '3'){
-//        printState(i+8, true);
-//      }
+      digitalWrite(solenoidPins[i], HIGH);
     }
     else {
-      digitalWrite(solenoidPins[i+8], LOW);
-//      if (ByteReceived == '3'){
-//        printState(i+8, false);
-//      }
+      digitalWrite(solenoidPins[i], LOW);
     }
   }
 }
@@ -257,15 +256,26 @@ void printState(int pin, bool state) {
   }
 }
 
-void selectMultiplexerPin(int pin) {
+void selectingPins(int multDemult, int pin) {
   if (pin > 7) return; // Exit if pin is out of scope
-  
+
+  if(multDemult == 0) { //Multiplexing
   for (int i=0; i<3; i++)
   {
     if (pin & (1<<i))
-      digitalWrite(selectPins[i], HIGH);
+      digitalWrite(multiplexerPins[i], HIGH);
     else
-      digitalWrite(selectPins[i], LOW);
+      digitalWrite(multiplexerPins[i], LOW);
+  }
+  }
+  else if (multDemult == 1) {
+    for (int i=0; i<3; i++)
+  {
+    if (pin & (1<<i))
+      digitalWrite(demultiplexerPins[i], HIGH);
+    else
+      digitalWrite(demultiplexerPins[i], LOW);
+  }
   }
 }
 

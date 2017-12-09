@@ -17,6 +17,7 @@ const int zOutput = 7;
 
 //Other pin constants
 int sensorPins[] = {A1, A2, A3, A4};
+//MOST OF THESE ARE ESTIMATES; PLEASE TAKE THEM WITH A GRAIN OF SALT. ALSO, REMEMBER THAT WHEN USING OPTION 6 WHILE PLAYING, THE BOUNDS AREN'T CHANGED.
 int sensorBounds[] = {230, 480, 630, 320};
 int multiplexerSensorBounds[] = {200, 350, 350, 475, 340, 275, 475, 460};
 int solenoidPins[] =  {3, 4, 5, 6};
@@ -132,7 +133,6 @@ void loop() {
       Serial.println();
       tempInput = int(ByteReceived);
       int tempInput2 = 0;
-
       if (tempInput < 8){
         Serial.println("What value do you want to change it to?");
         while (!(Serial.available())) {

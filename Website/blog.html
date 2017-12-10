@@ -92,6 +92,16 @@
 														<p></p>
 														<p><i>Chris Aring</i><b> - </b><i>Nov 9, 2017</i></p></td>
 													</tr>
+													<td>
+														As I've been cleaning up the first pass code and adding debugging tests, I've been thinking more about the multiple octaves/Arduinos problem. Possibly a CAN bus could work? Or if we wanted to work in individual octaves, a master/slave configuration could also pass and have a single configuration for each octave. That would keep it simple, although we may need a large number of arduinos. We also need to power everything; I'll need to start thinking about that soon.
+														<p></p>
+														<p><i>Nick Sherman</i><b> - </b><i> Oct 25, 2017</i></p></td>
+													</tr>
+													<td>
+														Because our project could include many octaves, I started writing code that could be scaled for the number of octaves we have. I need to spend more time thinking about the best way to handle it, because I only have a fairly simple system that each Arduino Uno takes in 6 IR sensors data and outputs to 6 servos. Maybe I could do some communication so we have one Arduino reading everything in and the other moving the servos? Will get back to this.
+														<p></p>
+														<p><i>Nick Sherman</i><b> - </b><i> Oct 20, 2017</i></p></td>
+													</tr>
 
 													<!-- TO CREATE BLOG POST WITH AN IMAGE COPY FROM "<tr>" TO "</tr>". PASTE BELOW LAST "</tr>" AND ENTER THE DATE AND YOUR TEXT. THEN IMPORT THE PHOTO YOU WANT TO POST INTO THE /images FOLDER AND LINK IT NEXT TO "src".-->
 													<tr>

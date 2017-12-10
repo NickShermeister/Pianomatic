@@ -18,8 +18,8 @@ const int zOutput = 7;
 //Other pin constants
 int sensorPins[] = {A1, A2, A3, A4};
 //MOST OF THESE ARE ESTIMATES; PLEASE TAKE THEM WITH A GRAIN OF SALT. ALSO, REMEMBER THAT WHEN USING OPTION 6 WHILE PLAYING, THE BOUNDS AREN'T CHANGED.
-int sensorBounds[] = {230, 480, 630, 320};
-int multiplexerSensorBounds[] = {200, 350, 350, 475, 340, 275, 475, 460};
+int sensorBounds[] = {300, 300, 300, 200};
+int multiplexerSensorBounds[] = {500, 350, 500, 500, 500, 300, 300, 300};
 int solenoidPins[] =  {3, 4, 5, 6};
 //b w b w 
 
@@ -74,6 +74,7 @@ void setup() {
     digitalWrite(solenoidPins[i], LOW);
   }
 
+  pinMode(2, INPUT);
  
 }
 
@@ -159,6 +160,27 @@ void loop() {
         Serial.println("Out of bounds. Try again.");
       }
     }
+
+    //Test solenoids
+    else if (ByteReceived == '7') {
+      Serial.println("Testing all solenoids.");
+      for (int i = 0; i < 8; i++){
+        pinMode(zOutput, LOW);
+        selectingPins(1, i);
+        pinMode(zOutput, HIGH);
+        delay(500);
+        Serial.println(digitalRead(2));
+        pinMode(zOutput, LOW);
+      }
+      pinMode(zOutput, LOW);
+      for (int i = 0; i < 4; i++) {
+        pinMode(solenoidPins[i], HIGH);
+        delay(500);
+        Serial.println(digitalRead(2));
+        pinMode(solenoidPins[i], LOW);
+      }
+      Serial.println("Testing done.");
+    }
     
     
     else if (ByteReceived == '9'){
@@ -221,9 +243,11 @@ void player() {
     //Change state to low/high
     if(sensorValuesMultiplexer[i] > multiplexerSensorBounds[i]){
       digitalWrite(zOutput, HIGH);
+//      Serial.println("High");
     }
     else {
       digitalWrite(zOutput, LOW);
+//      Serial.println("Low");
     }
   }
 
@@ -232,9 +256,11 @@ void player() {
     sensorValues[i]=analogRead(sensorPins[i]);
     if(sensorValues[i] > sensorBounds[i]){
       digitalWrite(solenoidPins[i], HIGH);
+//      Serial.println("High");
     }
     else {
       digitalWrite(solenoidPins[i], LOW);
+//      Serial.println("Low");
     }
   }
 }

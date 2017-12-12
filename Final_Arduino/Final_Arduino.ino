@@ -11,7 +11,7 @@
 //Multiplexer constants
 const int multiplexerPins[3] = {11, 12, 13};
 const int zInput = A0;
-const int demultiplexerPins[3] = {8, 9, 10};
+const int demultiplexerPins[3] = {10, 9, 8};
 // w b w b w w b w 
 const int zOutput = 7;
 

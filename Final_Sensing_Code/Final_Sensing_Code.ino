@@ -9,7 +9,8 @@ const int zInput = A0;
 
 //Other pin constants
 int sensorPins[] = {A1, A2, A3, A4};
-int sensorBounds[] = {150, 200, 300, 200};
+int sensorBounds[] = {200, 
+, 300, 200};
 int multiplexerSensorBounds[] = {500, 350, 500, 500, 500, 300, 300, 300};
 int solenoidPins[] =  {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, A5};
 //w b w b w w b w b w b w (key orders)

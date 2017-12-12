@@ -1,9 +1,7 @@
 //Looking at the machine, the far left is C. Far right is B (Make sure IR sensor is 1 when facing you)
+
 //Include needed libraries
 #include <Servo.h>
-
-//Define variables
-//ONLY HARDCODED VARIABLES; make sure they correleate 1:1. If they don't, everything breaks.
 
 //Multiplexer constants
 const int selectPins[3] = {11, 12, 13};
@@ -11,10 +9,10 @@ const int zInput = A0;
 
 //Other pin constants
 int sensorPins[] = {A1, A2, A3, A4};
-int sensorBounds[] = {300, 300, 300, 200};
+int sensorBounds[] = {150, 200, 300, 200};
 int multiplexerSensorBounds[] = {500, 350, 500, 500, 500, 300, 300, 300};
 int solenoidPins[] =  {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, A5};
-//w b w b w w b w b w b w 
+//w b w b w w b w b w b w (key orders)
 const int arrayLength = 12;     //Number of notes in an octave
 
 //Normal variables
@@ -34,8 +32,6 @@ void setup() {
     pinMode(selectPins[i], OUTPUT);
     digitalWrite(selectPins[i], LOW);
   }
-
-  
  pinMode(zInput, INPUT);
  
  for(int i = 0; i < 4; i ++)
@@ -43,7 +39,6 @@ void setup() {
   pinMode(sensorPins[i], INPUT);
  } 
 }
-
 
 void loop() {
   player();

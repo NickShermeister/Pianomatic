@@ -28,7 +28,7 @@ const int arrayLength = 12;     //Number of notes in an octave
 int sensorValues[4];  //Normal sensor values
 int sensorValuesMultiplexer[8]; //Sensor values in multiplexer
 int ByteReceived = -1;    // variable that holds what bytes are received from serial
-int bound = 800;          //The boundary that constitutes being on something; arbitrary needs to be determined
+int bound = 800;          //The boundeary that constitutes being on something; arbitrary needs to be determined
 int tempInput = 0;        //The new bound before max/min are taken into account
 unsigned long previousMillis = 0; //
 int interval = 1000;      //Interval between test reads

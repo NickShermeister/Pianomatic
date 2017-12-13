@@ -92,6 +92,30 @@
 														<p></p>
 														<p><i>Chris Aring</i><b> - </b><i>Nov 9, 2017</i></p></td>
 													</tr>
+
+
+
+													<td>
+														It's the day before Thanksgiving--must be a time for a blog post! We just finished our meeting, and we now have some solenoids specced/purchased, as well as power supplies and multiplexers. I'll be drafting up multiplexing code; it doesn't look that bad and I can just edit what we have so far.
+														<p></p>
+														<p><i>Nick Sherman</i><b>Nov 22 - 2017</b><i> </i></p></td>
+													</tr>
+
+													<td>
+														So everything would be ready... but we're pivoting. Time to start looking into how to power solenoids and how much power everything will need again. We're also switching over to multiplexing, so time to draft some quote for that. It'll be a fun Thanksgiving.
+														<p></p>
+														<p><i>Nick Sherman</i><b>Nov 16 - 2017</b><i> </i></p></td>
+													</tr>
+													<td>
+														Oh boy. Time for some big changes. We have the whole pivot of going to solenoids now (which if anything makes my life easier), but I also need to figure out multiplexing/demultiplexing if we want to implement that. Looks pretty easy (mapping many inputs to one), but I'll need a multiplexer before I know for sure, plus we don't know if we are going to actually pursue this. The good news is we shouldn't need to demultiplex if we're okay with doing one Arduino per octave, as there are just enough pins to make it work. For now, it looks like we may stick to multiple arduinos due to budget though. At least it looks like we can power everything?
+														<p></p>
+														<p><i>Nick Sherman</i><b>Nov 14 - 2017</b><i> </i></p></td>
+													</tr>
+													<td>
+														My Sprint 2 updates are now (hopefully) completely done for the code (I need all of the servos before I know for sure). After a lot of thought, I'm starting to think that a master/slave configuration may be best where one master reads in all of the IR sensors and then communicates the results to the slave. I feel like this is still very inefficient though; Maybe at the conclusion of this upcoming sprint I can get some good feedback on it? Also, I need to make sure that the power supplies we have will work.
+														<p></p>
+														<p><i>Nick Sherman</i><b> - </b><i> Nov 5, 2017</i></p></td>
+													</tr>
 													<td>
 														As I've been cleaning up the first pass code and adding debugging tests, I've been thinking more about the multiple octaves/Arduinos problem. Possibly a CAN bus could work? Or if we wanted to work in individual octaves, a master/slave configuration could also pass and have a single configuration for each octave. That would keep it simple, although we may need a large number of arduinos. We also need to power everything; I'll need to start thinking about that soon.
 														<p></p>
@@ -102,6 +126,7 @@
 														<p></p>
 														<p><i>Nick Sherman</i><b> - </b><i> Oct 20, 2017</i></p></td>
 													</tr>
+
 
 													<!-- TO CREATE BLOG POST WITH AN IMAGE COPY FROM "<tr>" TO "</tr>". PASTE BELOW LAST "</tr>" AND ENTER THE DATE AND YOUR TEXT. THEN IMPORT THE PHOTO YOU WANT TO POST INTO THE /images FOLDER AND LINK IT NEXT TO "src".-->
 													<tr>
@@ -118,17 +143,17 @@
 													</tr>
 													</tr>
 													<td>
-														For this sprint, I measured the distance between the first six notes on a piano, and created a CAD that held the Servos with the correct horizontal offset. We attached hardboard L shaped arms to represent the fingers that play the Piano. 
+														For this sprint, I measured the distance between the first six notes on a piano, and created a CAD that held the Servos with the correct horizontal offset. We attached hardboard L shaped arms to represent the fingers that play the Piano.
 														<p></p>
 														<p><i>Kian Raissian</i><b> - </b><i>Oct 27, 2017</i></p></td>
 													</tr>
 													<td>
-														After holding it up to a Piano, I realized the spacing between the Servos didn't exactly line up to a piano, so I respaced them to be correct.  
+														After holding it up to a Piano, I realized the spacing between the Servos didn't exactly line up to a piano, so I respaced them to be correct.
 														<p></p>
 														<p><i>Kian Raissian</i><b> - </b><i>Oct 31, 2017</i></p></td>
 													</tr>
 													<td>
-														I'm working on creating a very simple box to hold the IR sensors on the back, the wires inside, and the fingers sticking out the front of the box. I learned about a super secure type of box joint using a 1 inch 6 screw and square nut. With this configuration, I also decided that having the Servos vertically stacked is a better idea. 
+														I'm working on creating a very simple box to hold the IR sensors on the back, the wires inside, and the fingers sticking out the front of the box. I learned about a super secure type of box joint using a 1 inch 6 screw and square nut. With this configuration, I also decided that having the Servos vertically stacked is a better idea.
 														<p></p>
 														<p><i>Kian Raissian</i><b> - </b><i>Nov 3, 2017</i></p></td>
 													</tr>
@@ -138,33 +163,33 @@
 														<p><i>Kian Raissian</i><b> - </b><i>Nov 10, 2017</i></p></td>
 													</tr>
 													<td>
-														New developments, it looks like using arms of any length, we will not have enough torque to push down a piano key. I think it's time to pivot to having each of the servo rotate to create a linear motion downward using a rack and pinion. 
+														New developments, it looks like using arms of any length, we will not have enough torque to push down a piano key. I think it's time to pivot to having each of the servo rotate to create a linear motion downward using a rack and pinion.
 														<p></p>
 														<p><i>Kian Raissian</i><b> - </b><i>Nov 10, 2017</i></p></td>
 													</tr>
 
 													<td>
-														So after some experimentation with rack and pinion configuration and some research on other devices that play pianos, I'm thinking that solenoids would be an ideal solution because we would not need to make any rack and pinion configuration and there is no torque, only downward force. Time to spec some solenoids 
+														So after some experimentation with rack and pinion configuration and some research on other devices that play pianos, I'm thinking that solenoids would be an ideal solution because we would not need to make any rack and pinion configuration and there is no torque, only downward force. Time to spec some solenoids
 														<p></p>
 														<p><i>Kian Raissian</i><b> - </b><i>Nov 13, 2017</i></p></td>
 													</tr>
 													<td>
-														It's Thanksgiving Break, so I have a little more time to work on the project and spec solenoids. Luckily, I found a cheap one that has the correct travel distance and Voltage/Current rating, while still being not exorbitant in price. I'm ordering 24! I also spent a couple hours completely redesigning the CAD that integrated the scroller and the solenoids with the correct spacing. 
+														It's Thanksgiving Break, so I have a little more time to work on the project and spec solenoids. Luckily, I found a cheap one that has the correct travel distance and Voltage/Current rating, while still being not exorbitant in price. I'm ordering 24! I also spent a couple hours completely redesigning the CAD that integrated the scroller and the solenoids with the correct spacing.
 														<p></p>
 														<p><i>Kian Raissian</i><b> - </b><i>Nov 13, 2017</i></p></td>
 													</tr>
 													<td>
-														The last Sprint! We had to integrate last night and I slept for 30 minutes in the hallway. Everything works, but not perfectly calibrated. IR sensors still need to be tuned, and the scroller isn't scrolling at a constant rate. The body also needs an aesthetic redesign. 
+														The last Sprint! We had to integrate last night and I slept for 30 minutes in the hallway. Everything works, but not perfectly calibrated. IR sensors still need to be tuned, and the scroller isn't scrolling at a constant rate. The body also needs an aesthetic redesign.
 														<p></p>
 														<p><i>Kian Raissian</i><b> - </b><i>Dec 1, 2017</i></p></td>
 													</tr>
 													<td>
-														We have a new design in CAD! We had some problems with how vertically offset the solenoid bars were, so that needs to be fixed. 
+														We have a new design in CAD! We had some problems with how vertically offset the solenoid bars were, so that needs to be fixed.
 														<p></p>
 														<p><i>Kian Raissian</i><b> - </b><i>Dec 5, 2017</i></p></td>
 													</tr>
 													<td>
-														Everything is mechanically finished! We have mounts for the protoboard, Arduino, Breadboards, IR sensors, and solenoids. We decided to add an aesthetic touch to our sides and Laser Raster a hand that looks like it is playing the piano. Very excited to integrate for demo day! Alot calibration and assembly  
+														Everything is mechanically finished! We have mounts for the protoboard, Arduino, Breadboards, IR sensors, and solenoids. We decided to add an aesthetic touch to our sides and Laser Raster a hand that looks like it is playing the piano. Very excited to integrate for demo day! Alot calibration and assembly
 														<p></p>
 														<p><i>Kian Raissian</i><b> - </b><i>Nov 13, 2017</i></p></td>
 													</tr>

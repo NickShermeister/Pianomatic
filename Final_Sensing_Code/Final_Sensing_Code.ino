@@ -17,6 +17,7 @@ int highLoc = 0;    //Location in the array of sensor reads of the high val
 int sensorReads[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};   //All values of this read
 const int arrayLength = 12;     //Number of notes in an octave
 int sensorValues[12];  //Multiplexed: 0-7; Normal read-ins: 8-11
+int tempo;
 
 
 //Setup Function
@@ -44,8 +45,8 @@ void setup() {
 
 //Main loop
 void loop() {
-  player();
-  delay(50);  //delay so as not to have the arduino run at its full speed (there is no point)
+  maryHadALittleLamb();
+  delay(2000);  //delay so as not to have the arduino run at its full speed (there is no point)
 }
 
 
@@ -99,4 +100,34 @@ void selectMultiplexerPin(int pin) {
       digitalWrite(selectPins[i], LOW);
   }
 }
+
+void maryHadALittleLamb(){
+  tempo = 60;
+///  int timeDelay = 1000*60/tempo;
+  int timeDelay = 1000;
+  int num_beats = 0;
+  int total_beats = 4*8;
+  int current_note = 0;
+  int marysBeats[] = {5, 3, 1, 3, 5, 5, 5, 3, 3, 3, 5, 8, 8, 5, 3, 1, 3, 5, 5, 5, 5, 3, 3, 5, 3, 1};
+  int numBeats[] =   {1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4};
+
+  while(num_beats < total_beats){
+    digitalWrite(solenoidPins[marysBeats[current_note]-1], HIGH);
+    delay(timeDelay*numBeats[current_note]);
+    digitalWrite(solenoidPins[marysBeats[current_note]-1], LOW);
+    num_beats += numBeats[current_note];
+    current_note += 1;
+    if(current_note >= 26){
+      break;
+    }
+    delay(100);
+  }
+  
+}
+
+
+
+
+
+
 

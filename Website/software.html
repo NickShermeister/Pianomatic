@@ -33,10 +33,16 @@
 					</nav>
 
 				<!-- Main -->
-				
+
 					<div id="main">
-					
+
 						<!-- Content -->
+						<section id="content" class="main">
+						<h2>IR Sensor/Solenoid Controls</h2>
+							For IR sensing and solenoid control, we created a program for one Arduino that multiplexes eight of the IR sensors' inputs, directly takes in 4, and direclty outputs to all solenoids. This allows a 12-note octave to be controlled by one Pianomatic system. Multiplexing is necessary in this system due to the number of inputs/outputs we need to control simultaneously and because you cannot demultiplex and hold the value for a system. Something important to note is that you can't allow Serial communication if you use every pin in an Arduino because pins 0/1 are used for Rx/Tx for Serial, and attempting to use them will result in problems with your Arduino. If you want to see the evolution of our code between sprints, feel free to check out our <a href = "https://github.com/NickShermeister/Pianomatic">Github here</a>. 
+
+						</section>
+
 							<section id="content" class="main">
 							<h2>Convert Midi</h2>
 								We created a program in C++ that allowed us to take Midi files and convert them to 'drawn' notes that we could print out on a roll.
@@ -45,9 +51,9 @@
 
 								From this we output to a text file. We use the box unicode charactor to represent notes. Each charactor represents a quarter note so we fill in as many spaces and box unicode charactors to make up each note and blank space.
 
-							
+
 							</section>
-							
+
 					</div>
 
 				<!-- Footer -->

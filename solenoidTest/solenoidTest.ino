@@ -26,7 +26,7 @@ void player() {
   //First deal with multiplexer Serial.println(analogRead(zInput));
   for(int i = 0; i < 12; i++){
       digitalWrite(solenoidPins[i], HIGH);
-      delay(500);
+      delay(1000);
       digitalWrite(solenoidPins[i], LOW);
   }
 

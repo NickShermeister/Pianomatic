@@ -39,7 +39,7 @@
 						<!-- Content -->
 						<section id="content" class="main">
 						<h2>IR Sensor/Solenoid Controls</h2>
-							For IR sensing and solenoid control, we created a program for one Arduino that multiplexes eight of the IR sensors' inputs, directly takes in 4, and direclty outputs to all solenoids. This allows a 12-note octave to be controlled by one Pianomatic system. Multiplexing is necessary in this system due to the number of inputs/outputs we need to control simultaneously and because you cannot demultiplex and hold the value for a system. 
+							For IR sensing and solenoid control, we created a program for one Arduino that multiplexes eight of the IR sensors' inputs, directly takes in 4, and direclty outputs to all solenoids. This allows a 12-note octave to be controlled by one Pianomatic system. Multiplexing is necessary in this system due to the number of inputs/outputs we need to control simultaneously and because you cannot demultiplex and hold the value for a system. Something important to note is that you can't allow Serial communication if you use every pin in an Arduino because pins 0/1 are used for Rx/Tx for Serial, and attempting to use them will result in problems with your Arduino. If you want to see the evolution of our code between sprints, feel free to check out our <a href = "https://github.com/NickShermeister/Pianomatic">Github here</a>. 
 
 						</section>
 

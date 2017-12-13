@@ -93,40 +93,81 @@
 														<p><i>Chris Aring</i><b> - </b><i>Nov 9, 2017</i></p></td>
 													</tr>
 
-
-
-													<td>
-														It's the day before Thanksgiving--must be a time for a blog post! We just finished our meeting, and we now have some solenoids specced/purchased, as well as power supplies and multiplexers. I'll be drafting up multiplexing code; it doesn't look that bad and I can just edit what we have so far.
+													<tr>
+														<td>
+															Alright, time for updates that I may have missed while I was sick. We have ordered parts for a second octave, although we probably won't have it done for POE. Right now, we're in survival mode, finiishing our project. We're getting there; we would be done but unfortunately there was some missizing and we need to reprint some things. In other news, I figured out two of our last big problems for software (excluding calibration). 1) We can't demultiplex because demultiplexing only allows for 1 output at a time. 2) We can use one Arduino per octave if we don't have an active Serial communication with our computer, so pins 0/1 don't do anything. As it's getting late, I'll head off for now, but I'm psyched to see what we finish in the next couple of days.
 														<p></p>
-														<p><i>Nick Sherman</i><b>Nov 22 - 2017</b><i> </i></p></td>
+														<p><i>Nick Sherman</i><b> - </b><i>Dec 11, 2017</i></p></td>
+													</tr>
+													<tr>
+														<td>
+															It's a bittersweet day, as it's our last day of instruction but our project isn't working yet. We have under a week to refabricate everything, finish debugging everything, and then get a working project. Easy-peasy, right? At least I'm fairly sure that our final design will look cool. I think I have demultiplexing working correctly but it just isn't working right now... hopefully I'll figure it out soon. I have to say, getting sick right before finals is annoying though; it means that I'm not working on POE as much until I feel better (hopefully tomorrow). We'll see, and hopefully you'll hear from me tomorrow.
+														<p></p>
+														<p><i>Nick Sherman</i><b> - </b><i>Dec 8, 2017</i></p></td>
 													</tr>
 
-													<td>
+													<tr>
+														<td>
+															So it's the start of our last week of instruction, and we don't have all of the materials for two octaves... Looks like our goal is now exactly one octave large, although we may be ordering a second octave's worth of supplies to see if we can sneak it in for Expo. I'm fairly certain we can't use pins 0/1 on the Arduino due to communication between the Arduino and our computers, so unfortunately we're back to two Arduinos per octave unless I get demultiplexing up now. Drafting the code for it, and I hope that it will work.
+														<p></p>
+														<p><i>Nick Sherman</i><b> - </b><i>Dec 4, 2017</i></p></td>
+													</tr>
+
+													<tr>
+														<td>
+															Well, our drop dead "MVP" was due today... we were closer to dropping dead than finishing the MVP. For some reason, we can't use all of the pins of the Arduino. To make things even better, we weren't reading as accurately as we would wish and need to improve the scroller and scrolls. The good news, is that we are pretty close to our actual MVP. It sounds like we're going to do another iteration before hte final version, so here's to fixing the playing problems and getting some sleep.
+														<p></p>
+														<p><i>Nick Sherman</i><b> - </b><i>Dec 1, 2017</i></p></td>
+													</tr>
+
+													<tr>
+														<td>
+															Alright, the basic multiplexer code is now up and running. It isn't as debuggable as I would like, but we can now multiplex, which menas one Arduino per octave now. At the rate Arduinos have met their demise, it seems like a good idea right now. Now that we're back t school, this project is really kicking into higher gear; I can't wait to see what we're able to create with the rest of the semester.
+														<p></p>
+														<p><i>Nick Sherman</i><b> - </b><i>Nov 29, 2017</i></p></td>
+													</tr>
+
+													<tr>
+														<td>
+														It's the day before Thanksgiving--must be a time for a blog post! We just finished our meeting, and we now have some solenoids specced/purchased, as well as power supplies and multiplexers. I'll be drafting up multiplexing code; it doesn't look that bad and I can just edit what we have so far. Happy Thanksgiving, and let's kick this project into high gear.
+														<p></p>
+														<p><i>Nick Sherman</i><b> - </b><i>Nov 22, 2017 </i></p></td>
+													</tr>
+
+													<tr>
+														<td>
 														So everything would be ready... but we're pivoting. Time to start looking into how to power solenoids and how much power everything will need again. We're also switching over to multiplexing, so time to draft some quote for that. It'll be a fun Thanksgiving.
 														<p></p>
-														<p><i>Nick Sherman</i><b>Nov 16 - 2017</b><i> </i></p></td>
+														<p><i>Nick Sherman</i><b> - </b><i>>Nov 16, 2017 </i></p></td>
 													</tr>
-													<td>
+													<tr>
+														<td>
 														Oh boy. Time for some big changes. We have the whole pivot of going to solenoids now (which if anything makes my life easier), but I also need to figure out multiplexing/demultiplexing if we want to implement that. Looks pretty easy (mapping many inputs to one), but I'll need a multiplexer before I know for sure, plus we don't know if we are going to actually pursue this. The good news is we shouldn't need to demultiplex if we're okay with doing one Arduino per octave, as there are just enough pins to make it work. For now, it looks like we may stick to multiple arduinos due to budget though. At least it looks like we can power everything?
 														<p></p>
-														<p><i>Nick Sherman</i><b>Nov 14 - 2017</b><i> </i></p></td>
+														<p><i>Nick Sherman</i><b> - </b><i>Nov 14, 2017 </i></p></td>
 													</tr>
-													<td>
+													<tr>
+														<td>
 														My Sprint 2 updates are now (hopefully) completely done for the code (I need all of the servos before I know for sure). After a lot of thought, I'm starting to think that a master/slave configuration may be best where one master reads in all of the IR sensors and then communicates the results to the slave. I feel like this is still very inefficient though; Maybe at the conclusion of this upcoming sprint I can get some good feedback on it? Also, I need to make sure that the power supplies we have will work.
 														<p></p>
 														<p><i>Nick Sherman</i><b> - </b><i> Nov 5, 2017</i></p></td>
 													</tr>
-													<td>
+													<tr>
+														<td>
 														As I've been cleaning up the first pass code and adding debugging tests, I've been thinking more about the multiple octaves/Arduinos problem. Possibly a CAN bus could work? Or if we wanted to work in individual octaves, a master/slave configuration could also pass and have a single configuration for each octave. That would keep it simple, although we may need a large number of arduinos. We also need to power everything; I'll need to start thinking about that soon.
 														<p></p>
 														<p><i>Nick Sherman</i><b> - </b><i> Oct 25, 2017</i></p></td>
 													</tr>
-													<td>
+													<tr>
+														<td>
 														Because our project could include many octaves, I started writing code that could be scaled for the number of octaves we have. I need to spend more time thinking about the best way to handle it, because I only have a fairly simple system that each Arduino Uno takes in 6 IR sensors data and outputs to 6 servos. Maybe I could do some communication so we have one Arduino reading everything in and the other moving the servos? Will get back to this.
 														<p></p>
 														<p><i>Nick Sherman</i><b> - </b><i> Oct 20, 2017</i></p></td>
 													</tr>
-						                                                        <tr>
+
+
+
+													<tr>
 														<td>
 														Worked with the stepper motor. Currently, the code motor makes it small sections with pauses in the middle. I believe it might be my code. Will look for another way of writing my code.
 														<p></p>

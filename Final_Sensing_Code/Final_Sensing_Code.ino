@@ -6,7 +6,7 @@ const int zInput = A0;
 
 //Other pin constants
 int sensorPins[] = {A1, A2, A3, A4};
-int sensorBounds[] = {350, 350, 350, 400, 300, 350, 475, 500, 350, 350, 350, 350};
+int sensorBounds[] = {300, 300, 250, 300, 200, 300, 300, 300, 300, 300, 300, 300};
 int solenoidPins[] =  {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, A5};
 //w b w b w w b w b w b w (key orders)
 
@@ -17,7 +17,15 @@ int highLoc = 0;    //Location in the array of sensor reads of the high val
 int sensorReads[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};   //All values of this read
 const int arrayLength = 12;     //Number of notes in an octave
 int sensorValues[12];  //Multiplexed: 0-7; Normal read-ins: 8-11
-int tempo;
+
+//Variables for hardcoded songs
+int tempo;            //BPM
+int timeDelay;  //Delay for each beat
+int num_beats;    //number of beats
+int total_beats;  //Total number of beats
+int current_note = 0; //current note number
+int marysBeats[] = {5, 3, 1, 3, 5, 5, 5, 3, 3, 3, 5, 8, 8, 5, 3, 1, 3, 5, 5, 5, 5, 3, 3, 5, 3, 1};
+int marysNumBeats[] =   {1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4};
 
 
 //Setup Function
@@ -43,15 +51,17 @@ void setup() {
 }
 
 
-//Main loop
+//Main loop; commented functions allow for different playing.
 void loop() {
   maryHadALittleLamb();
-  delay(2000);  //delay so as not to have the arduino run at its full speed (there is no point)
+//  player();
+//  chords();
+  delay(30);
 }
 
 
 
-//Main playing function
+//Main playing function; reads in from IR sensors.
 void player() {
   
   //Get values for multiplexed sensors and compare to the high val
@@ -74,7 +84,7 @@ void player() {
     }
   }
 
-  //Change the solenoids' states, with only the high val being HIGH and the rest LOW
+  //Change the solenoids' states, with only the high val's location being HIGH and the rest LOW
   for(int i = 0; i < 12; i++){
     if(i == highLoc){
       digitalWrite(solenoidPins[i], HIGH);
@@ -101,27 +111,41 @@ void selectMultiplexerPin(int pin) {
   }
 }
 
+//Hardcoded "Mary Had a Little Lamb"
 void maryHadALittleLamb(){
-  tempo = 60;
+  tempo = 240;
 ///  int timeDelay = 1000*60/tempo;
-  int timeDelay = 1000;
-  int num_beats = 0;
-  int total_beats = 4*8;
-  int current_note = 0;
-  int marysBeats[] = {5, 3, 1, 3, 5, 5, 5, 3, 3, 3, 5, 8, 8, 5, 3, 1, 3, 5, 5, 5, 5, 3, 3, 5, 3, 1};
-  int numBeats[] =   {1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4};
+  timeDelay = 250;
+  num_beats = 0;
+  total_beats = 4*8;
+  current_note = 0;
 
   while(num_beats < total_beats){
     digitalWrite(solenoidPins[marysBeats[current_note]-1], HIGH);
-    delay(timeDelay*numBeats[current_note]);
+    delay(timeDelay*marysNumBeats[current_note]);
     digitalWrite(solenoidPins[marysBeats[current_note]-1], LOW);
-    num_beats += numBeats[current_note];
+    num_beats += marysNumBeats[current_note];
     current_note += 1;
     if(current_note >= 26){
       break;
     }
-    delay(100);
+    delay(60);
   }
+  
+}
+
+//Play a chord; right now just C Major
+void chords(){
+  int chord[] = {0, 4, 7};
+
+  for(int i = 0; i < 3; i++){
+    digitalWrite(solenoidPins[chord[i]], HIGH);
+  }
+  delay(1000);
+  for(int i = 0; i < 3; i++){
+    digitalWrite(solenoidPins[chord[i]], LOW);
+  }
+  
   
 }
 

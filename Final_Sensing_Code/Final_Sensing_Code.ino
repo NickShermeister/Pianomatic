@@ -6,7 +6,7 @@ const int zInput = A0;
 
 //Other pin constants
 int sensorPins[] = {A1, A2, A3, A4};
-int sensorBounds[] = {350, 350, 350, 400, 300, 350, 475, 500, 350, 350, 350, 350};
+int sensorBounds[] = {300, 300, 250, 300, 200, 300, 300, 300, 300, 300, 300, 300};
 int solenoidPins[] =  {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, A5};
 //w b w b w w b w b w b w (key orders)
 
@@ -46,7 +46,12 @@ void setup() {
 //Main loop
 void loop() {
   maryHadALittleLamb();
-  delay(2000);  //delay so as not to have the arduino run at its full speed (there is no point)
+//  player();
+//  chords();
+//  digitalWrite(5, HIGH);
+//  delay(70);  //delay so as not to have the arduino run at its full speed (there is no point)
+//  digitalWrite(5, LOW);
+  delay(30);
 }
 
 
@@ -104,7 +109,7 @@ void selectMultiplexerPin(int pin) {
 void maryHadALittleLamb(){
   tempo = 60;
 ///  int timeDelay = 1000*60/tempo;
-  int timeDelay = 1000;
+  int timeDelay = 250;
   int num_beats = 0;
   int total_beats = 4*8;
   int current_note = 0;
@@ -120,8 +125,22 @@ void maryHadALittleLamb(){
     if(current_note >= 26){
       break;
     }
-    delay(100);
+    delay(60);
   }
+  
+}
+
+void chords(){
+  int chord[] = {0, 4, 7};
+
+  for(int i = 0; i < 3; i++){
+    digitalWrite(solenoidPins[chord[i]], HIGH);
+  }
+  delay(1000);
+  for(int i = 0; i < 3; i++){
+    digitalWrite(solenoidPins[chord[i]], LOW);
+  }
+  
   
 }
 

@@ -206,18 +206,18 @@ void player() {
 
     
     //Change state to low/high
-    if(sensorValuesMultiplexer[i] > multiplexerSensorBounds[i]){
-      digitalWrite(solenoidPins[i], HIGH);
-//      if (ByteReceived == '3'){
-//        printState(i, true);
-//      }
-    }
-    else {
-      digitalWrite(solenoidPins[i], LOW);
-//      if (ByteReceived == '3'){
-//        printState(i, false);
-//      }
-    }
+//    if(sensorValuesMultiplexer[i] > multiplexerSensorBounds[i]){
+//      digitalWrite(solenoidPins[i], HIGH);
+////      if (ByteReceived == '3'){
+////        printState(i, true);
+////      }
+//    }
+//    else {
+//      digitalWrite(solenoidPins[i], LOW);
+////      if (ByteReceived == '3'){
+////        printState(i, false);
+////      }
+//    }
   }
 
 
@@ -225,18 +225,18 @@ void player() {
   //Then get values for the other 4
   for (int i = 0; i < 4; i++){
     sensorValues[i]=analogRead(sensorPins[i]);
-    if(sensorValues[i] > sensorBounds[i]){
-      digitalWrite(solenoidPins[i+8], HIGH);
-//      if (ByteReceived == '3'){
-//        printState(i+8, true);
-//      }
-    }
-    else {
-      digitalWrite(solenoidPins[i+8], LOW);
-//      if (ByteReceived == '3'){
-//        printState(i+8, false);
-//      }
-    }
+//    if(sensorValues[i] > sensorBounds[i]){
+//      digitalWrite(solenoidPins[i+8], HIGH);
+////      if (ByteReceived == '3'){
+////        printState(i+8, true);
+////      }
+//    }
+//    else {
+//      digitalWrite(solenoidPins[i+8], LOW);
+////      if (ByteReceived == '3'){
+////        printState(i+8, false);
+////      }
+//    }
   }
 }
 
@@ -316,5 +316,6 @@ void printSensorInputs(bool Force) {
   
   }
 }
+
 
 

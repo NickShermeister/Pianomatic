@@ -26,10 +26,13 @@ int total_beats;  //Total number of beats
 int current_note = 0; //current note number
 int marysBeats[] = {5, 3, 1, 3, 5, 5, 5, 3, 3, 3, 5, 8, 8, 5, 3, 1, 3, 5, 5, 5, 5, 3, 3, 5, 3, 1};
 int marysNumBeats[] =   {1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4};
-
+int program_to_run;
 
 //Setup Function
 void setup() {  
+  //Decide on program to run
+  program_to_run = 0;
+  
   //Set up solenoid pins as outputs
   for(int i = 0; i < arrayLength; i++){
     pinMode(solenoidPins[i], OUTPUT);
@@ -53,9 +56,16 @@ void setup() {
 
 //Main loop; commented functions allow for different playing.
 void loop() {
-  maryHadALittleLamb();
-//  player();
-//  chords();
+  if(program_to_run == 0){
+    player();
+  }
+  else if(program_to_run == 1){
+    chords();
+  }
+  else {
+    maryHadALittleLamb();
+  }
+  
   delay(30);
 }
 

@@ -27,14 +27,14 @@
 
 					<!-- Nav -->
 					<nav id="nav">
-                <ul>
-                    <li><a href="index.html" class="active">Introduction</a></li>
-                    <li><a href="index.html">Systems</a></li>
-                    <li><a href="bio.html">The Team</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="sprints.html">Progress</a></li>
-                    <li><a href="images.html">Gallery</a></li>
-                </ul>
+						<ul>
+								<li><a href="index.html">Introduction</a></li>
+								<li><a href="index.html#first" class="active">Systems</a></li>
+								<li><a href="bio.html">The Team</a></li>
+								<li><a href="blog.html">Blog</a></li>
+								<li><a href="sprints.html">Progress</a></li>
+								<li><a href="images.html">Gallery</a></li>
+						</ul>
             </nav>
 
 				<!-- Main -->
@@ -47,6 +47,11 @@
 							Our electrical system design was driven by the need to play 12 piano keys without overheating the components. Each key required one infrared sensor to receive input from a music sheet and one solenoid that pressed down the key. Power transistors were used to control the high-voltage solenoids with a stable power supply at 5V. All the sensors and solenoids were controlled by one Arduino. The Arduino used multiplexer chips to extend IO pin number capacity to 12 digital output and 12 analog input.
 
 							<p></p>
+							<div class="box alt">
+											<div class="row uniform">
+												<div class="12u"><span class="image fit"><img src="images/circuit_diagram.png" alt="" /></span></div>
+												</div>
+		
 							<h2>Circuit Diagram</h2>
 							The circuits for the system were designed to achieve functionality with the minimum number of components, which allowed us to reproduce 12 copies of the same circuit within the budget.
 

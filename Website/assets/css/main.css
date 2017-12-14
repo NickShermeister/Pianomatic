@@ -2435,6 +2435,20 @@
 			display: block;
 			margin-bottom:25%;
 		}
+.image.kian {
+max-width: 40%;
+
+}
+.image.kian img {
+width: 100%;
+}
+	.image.kian {
+			float: left;
+			margin: 2.0em 1.5em 1em 0;
+			top: 0.25em;
+		}
+
+
 
 		.image.left, .image.right {
 			max-width: 40%;
@@ -2444,9 +2458,9 @@
 				width: 100%;
 			}
 
-		.image.left {
+		.image.left, .image.kian {
 			float: left;
-			margin: 0 1.5em 1em 0;
+			margin: 0em 1.5em 1em 0;
 			top: 0.25em;
 		}
 

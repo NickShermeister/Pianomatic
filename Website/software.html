@@ -55,9 +55,19 @@
 
 								We input a Midi file and copy it to a memory buffer that we can parse through and modify. We parse out information from the header chunk and track chunks to get information such as tempo, notes, and note timing.
 
-								From this we output to a text file. We use the box unicode charactor to represent notes. Each charactor represents a quarter note so we fill in as many spaces and box unicode charactors to make up each note and blank space.
-
-
+								From this we output to a text file. We use the box unicode charactor to represent notes. Each charactor represents a quarter note so we fill in as many spaces and box unicode charactors to make up each note and blank space. The image below shows what the text file looks like after the program takes a midi file, parses it, and prints the notes to a text file.
+                                
+                                <div class="box alt">
+                                    <div class="row uniform">
+                                        <div class="12u"><span class="image fit"><img src="images/final_chris.png" alt="" /></span></div>
+                                   </div>
+               
+                                There are two main classes. The main class holds the functions that copy the midi file to a buffer (memory block), parse the buffer, and print the notes to a text file. The other class, Notes, holds information about each note such as its starting and ending time and the note it represents. The code could be split into better and more well-defined classes, but what we have now is functional. We are working to make the code cleaner. The summarized flow of the code is below.
+                                
+                                <div class="box alt">
+                                    <div class="row uniform">
+                                        <div class="12u"><span class="image fit"><img src="images/diagram_chris.png" alt="" /></span></div>
+                                    </div>
 							</section>
 
 					</div>

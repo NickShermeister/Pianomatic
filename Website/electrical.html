@@ -1,110 +1,90 @@
 <!DOCTYPE HTML>
 <!--
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+ Stellar by HTML5 UP
+ html5up.net | @ajlkn
+ Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+ -->
 <html>
-	<head>
-		<title>Electrical</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-	<body>
-
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Header -->
-					<header id="header">
-						<h1>Electrical</h1>
-						<p>PianoMatic</p>
-					</header>
-
-					<!-- Nav -->
-					<nav id="nav">
-						<ul>
-								<li><a href="index.html">Introduction</a></li>
-								<li><a href="index.html#first" class="active">Systems</a></li>
-								<li><a href="bio.html">The Team</a></li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="sprints.html">Progress</a></li>
-								<li><a href="bom.html">Bill of Materials</a></li>
-								<li><a href="images.html">Gallery</a></li>
-						</ul>
+    <head>
+        <title>Electrical</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    </head>
+    <body>
+        
+        <!-- Wrapper -->
+        <div id="wrapper">
+            
+            <!-- Header -->
+            <header id="header">
+                <h1>Electrical</h1>
+                <p>PianoMatic</p>
+            </header>
+            
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Introduction</a></li>
+                    <li><a href="index.html#first" class="active">Systems</a></li>
+                    <li><a href="bio.html">The Team</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="sprints.html">Progress</a></li>
+                    <li><a href="bom.html">Bill of Materials</a></li>
+                    <li><a href="images.html">Gallery</a></li>
+                </ul>
             </nav>
-
-				<!-- Main -->
-
-					<div id="main">
-
-						<!-- Content -->
-							<section id="content" class="main">
-							<h2>Electrical Overview</h2>
-							Our electrical system design was driven by the need to play 12 piano keys without overheating the components. Each key required one infrared sensor to receive input from a music sheet and one solenoid that pressed down the key. Power transistors were used to control the high-voltage solenoids with a stable power supply at 5V. All the sensors and solenoids were controlled by one Arduino. The Arduino used multiplexer chips to extend IO pin number capacity to 12 digital output and 12 analog input.
-
-							<p></p>
-							<div class="box alt">
-											<div class="row uniform">
-												<div class="12u"><span class="image fit"><img src="images/circuit_diagram.png" alt="" /></span></div>
-												</div>
-		
-							<h2>Circuit Diagram</h2>
-							The circuits for the system were designed to achieve functionality with the minimum number of components, which allowed us to reproduce 12 copies of the same circuit within the budget.
-
-							The infrared sensor circuit consisted of an integrated infrared emitting diode and phototransistor and two resistors to provide the appropriate current. The circuits for the 12 sensors were soldered onto a protoboard and powered by an external 5V power supply.
-
-							The solenoid circuit consisted of a solenoid, an NPN power transistor, a flyback diode and a resistor to produce appropriate collector current. The flyback diodes were used to eliminate the sudden voltage spike from the solenoids when the power supply was interrupted. The circuit for the 12 solenoids were developed on a breadboard and powered by an external 15V power supply.
-
-							<p></p>
-							<h2>Motor Control</h2>
-							We chose a 12V, 2A stepped motor to create the scroller mechanism for producing sensor input. The stepper motor was powered by a Polulu motor driver chip that allowed micro-stepping and made it possible for us to adjust the tempo of the input feed.
-
-							<p></p>
-							</section>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-					<!--	<section>
-							<h2>Aliquam sed mauris</h2>
-							<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">Learn More</a></li>
-							</ul>
-						</section>
-						<section>
-							<h2>Etiam feugiat</h2>
-							<dl class="alt">
-								<dt>Address</dt>
-								<dd>Olin College &bull; Needham, MA 02492 &bull; USA</dd>
-								<dt>Phone</dt>
-								<dd>(000) 000-0000 x 0000</dd>
-								<dt>Email</dt>
-								<dd><a href="#">information@untitled.tld</a></dd>
-							</dl>
-							<ul class="icons">
-								<li><a href="#" class="icon fa-github alt"><span class="label">GitHub</span></a></li>
-							</ul>
-						</section> -->
-						<p class="copyright">&copy; Copyright © 2017 PianoMatic </p>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
+            
+            <!-- Main -->
+            
+            <div id="main">
+                
+                <!-- Content -->
+                <section id="content" class="main">
+                    <h2>Electrical Overview</h2>
+                    Our electrical system design was driven by the need to play 12 piano keys without overheating the components. Each key required one infrared sensor to receive input from a music sheet and one solenoid that pressed down the key. Power transistors were used to control the high-voltage solenoids with a stable power supply at 5V. All the sensors and solenoids were controlled by one Arduino. The Arduino used multiplexer chips to extend IO pin number capacity to 12 digital output and 12 analog input.
+                    
+                    <p></p>
+                    <div class="box alt">
+                        <div class="row uniform">
+                            <div class="12u"><span class="image fit"><img src="images/circuit_diagram.png" alt="" /></span></div>
+                        </div>
+                        
+                        <h2>Circuit Diagram</h2>
+                        The circuits for the system were designed to achieve functionality with the minimum number of components, which allowed us to reproduce 12 copies of the same circuit within the budget.
+                        
+                        The infrared sensor circuit consisted of an integrated infrared emitting diode and phototransistor and two resistors to provide the appropriate current. The circuits for the 12 sensors were soldered onto a protoboard and powered by an external 5V power supply.
+                        
+                        The solenoid circuit consisted of a solenoid, an NPN power transistor, a flyback diode and a resistor to produce appropriate collector current. The flyback diodes were used to eliminate the sudden voltage spike from the solenoids when the power supply was interrupted. The circuit for the 12 solenoids were developed on a breadboard and powered by an external 15V power supply.
+                        
+                        <p></p>
+                        <h2>Motor Control</h2>
+                        We chose a 12V, 2A stepped motor to create the scroller mechanism for producing sensor input. The stepper motor was powered by a Polulu motor driver chip that allowed micro-stepping and made it possible for us to adjust the tempo of the input feed.
+                        
+                        <p></p>
+                        </section>
+                
+            </div>
+            
+            <!-- Footer -->
+            <footer id="footer">
+                
+                <p class="copyright">&copy; Copyright © 2017 PianoMatic </p>
+            </footer>
+            
+        </div>
+        
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="assets/js/main.js"></script>
+        
+    </body>
 </html>

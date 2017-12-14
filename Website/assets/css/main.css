@@ -84,7 +84,7 @@
 	}
 
 	.row.uniform > * > :last-child {
-		margin-bottom: 0;
+		margin-bottom: 20%;
 	}
 
 	.row.\30 \25 > * {
@@ -2433,7 +2433,7 @@
 		.image img {
 			border-radius: 8px;
 			display: block;
-			margin-bottom:25%;
+			/*margin-bottom:25%;*/
 		}
 .image.kian {
 max-width: 40%;
@@ -2474,6 +2474,7 @@ width: 100%;
 			display: block;
 			margin: 0em 0em 2em 0em;
 			width: 100%;
+			margin-bottom:20%;
 		}
 
 			.image.fit img {

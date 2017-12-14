@@ -2416,6 +2416,13 @@
 
 /* Image */
 
+.rotate90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
 	.image {
 		border-radius: 8px;
 		border: 0;
@@ -2426,6 +2433,7 @@
 		.image img {
 			border-radius: 8px;
 			display: block;
+			margin-bottom:25%;
 		}
 
 		.image.left, .image.right {
@@ -2450,7 +2458,7 @@
 
 		.image.fit {
 			display: block;
-			margin: 0 0 2em 0;
+			margin: 0em 0em 2em 0em;
 			width: 100%;
 		}
 

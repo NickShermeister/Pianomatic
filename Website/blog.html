@@ -63,11 +63,22 @@
 													</tr>
 													<tr>
 														<td>
+														Because our project could include many octaves, I started writing code that could be scaled for the number of octaves we have. I need to spend more time thinking about the best way to handle it, because I only have a fairly simple system that each Arduino Uno takes in 6 IR sensors data and outputs to 6 servos. Maybe I could do some communication so we have one Arduino reading everything in and the other moving the servos? Will get back to this.
+														<p></p>
+														<p><i>Nick Sherman</i><b> - </b><i> Oct 20, 2017</i></p></td>
+													</tr>
+													<tr>
+														<td>
 														Today I worked on the website. I found a good template that we all decided looked nice and would be functional. We worked to fill out some of the basic information and structure of the website.
 														<p></p>
 														<p><i>Chris Aring</i><b> - </b><i>Oct 24, 2017</i></p></td>
 													</tr>
-													
+													<tr>
+														<td>
+														As I've been cleaning up the first pass code and adding debugging tests, I've been thinking more about the multiple octaves/Arduinos problem. Possibly a CAN bus could work? Or if we wanted to work in individual octaves, a master/slave configuration could also pass and have a single configuration for each octave. That would keep it simple, although we may need a large number of arduinos. We also need to power everything; I'll need to start thinking about that soon.
+														<p></p>
+														<p><i>Nick Sherman</i><b> - </b><i> Oct 25, 2017</i></p></td>
+													</tr>
 													<tr>
 														<td>
 													  The first sprint is finished today! We finished building a proof of our idea and it worked! The infrared sensors had big margins of error but they showed the function of our MVP. To read black and white accurately we probably need better infrared sensors.
@@ -87,6 +98,18 @@
 													</tr>
 													<tr>
 														<td>
+														My Sprint 2 updates are now (hopefully) completely done for the code (I need all of the servos before I know for sure). After a lot of thought, I'm starting to think that a master/slave configuration may be best where one master reads in all of the IR sensors and then communicates the results to the slave. I feel like this is still very inefficient though; Maybe at the conclusion of this upcoming sprint I can get some good feedback on it? Also, I need to make sure that the power supplies we have will work.
+														<p></p>
+														<p><i>Nick Sherman</i><b> - </b><i> Nov 5, 2017</i></p></td>
+													</tr>
+													<tr>
+														<td>
+														Worked with the stepper motor. Currently, the code motor makes it small sections with pauses in the middle. I believe it might be my code. Will look for another way of writing my code.
+														<p></p>
+														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 7, 2017</i></p></td>
+													</tr>
+													<tr>
+														<td>
 														I did a ton of soldering today. And now all the circuits for our 12 new infrared sensors were carefully organized on a single protoboard. The new sensors have higher sensitivity and can distinguish black from white. With the protoboard we should be able to better organize our electrical components and reduce the size of the enclosure box.
 														<p></p>
 														<p><i>Yichen Jiang</i><b> - </b><i>Nov 8, 2017</i></p></td>
@@ -98,15 +121,40 @@
 													</tr>
 													<tr>
 														<td>
+														Still could not make the motor work continuously despite Chris and Yichen working with the stepper motor.
+														<p></p>
+														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 9, 2017</i></p></td>
+													</tr>
+													<tr>
+														<td>
 														Finally, end of the second sprint! Exciting news is that we have got all our infrared sensors mounted and functioning. We also managed to supply power to our 12 servos. I was having trouble controling the stepper motor earlier today. It turned out that Arduino motor shield wasn't enough to control the it. Our dear ninja Trent lent us a motor driver that could supply the necessary voltage and current. Then the motor moved! And our next goal with that is to build a robost scrolling mechanism that can feed the paper continuously.
 														<p></p>
 														<p><i>Yichen Jiang</i><b> - </b><i>Nov 10, 2017</i></p></td>
 													</tr>
 													<tr>
 														<td>
+														With the help from Trent, we discovered the stepper motor needed more power than supplied. The pausing was caused from the power supply we were using saving the Arduino from becoming fried. The problem wasn't the code as we initially thought.
+														<p></p>
+														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 10, 2017</i></p></td>
+													</tr>
+													<tr>
+														<td>
+														The stepper motor is now receiving the 12V it requires with a power supply and stepper motor driver carrier. Accomplished with the help from Trent teaching how to use a stepper motor driver carrier.
+														<p></p>
+														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 10, 2017</i></p></td>
+													</tr>
+													<tr>
+														<td>
 														Oh boy. Time for some big changes. We have the whole pivot of going to solenoids now (which if anything makes my life easier), but I also need to figure out multiplexing/demultiplexing if we want to implement that. Looks pretty easy (mapping many inputs to one), but I'll need a multiplexer before I know for sure, plus we don't know if we are going to actually pursue this. The good news is we shouldn't need to demultiplex if we're okay with doing one Arduino per octave, as there are just enough pins to make it work. For now, it looks like we may stick to multiple arduinos due to budget though. At least it looks like we can power everything?
 														<p></p>
 														<p><i>Nick Sherman</i><b> - </b><i>Nov 14, 2017 </i></p></td>
+													</tr>
+													
+													<tr>
+														<td>
+														The motor code is simpler than what I initially created. The current code allows for simple adjustment of the motor speed.
+														<p></p>
+														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 14, 2017</i></p></td>
 													</tr>
 													<tr>
 														<td>
@@ -131,6 +179,18 @@
 														It's the day before Thanksgiving--must be a time for a blog post! We just finished our meeting, and we now have some solenoids specced/purchased, as well as power supplies and multiplexers. I'll be drafting up multiplexing code; it doesn't look that bad and I can just edit what we have so far. Happy Thanksgiving, and let's kick this project into high gear.
 														<p></p>
 														<p><i>Nick Sherman</i><b> - </b><i>Nov 22, 2017 </i></p></td>
+													</tr>
+													<tr>
+														<td>
+														Missed the Thanksgiving meeting due to sickness, but I know what the team discussed. Seems orders were placed and an emphasize on blog posts for documentation. Will need to check asana and messages to properly catch up.
+														<p></p>
+														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 22, 2017</i></p></td>
+													</tr>
+													<tr>
+														<td>
+														 Got the newer stepper motor code. Now, I can control the speed when needed for the scroller. 
+														<p></p>
+														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 28, 2017</i></p></td>
 													</tr>
 													<tr>
 														<td>
@@ -217,63 +277,15 @@
 
 													
 													
-													<tr>
-														<td>
-														My Sprint 2 updates are now (hopefully) completely done for the code (I need all of the servos before I know for sure). After a lot of thought, I'm starting to think that a master/slave configuration may be best where one master reads in all of the IR sensors and then communicates the results to the slave. I feel like this is still very inefficient though; Maybe at the conclusion of this upcoming sprint I can get some good feedback on it? Also, I need to make sure that the power supplies we have will work.
-														<p></p>
-														<p><i>Nick Sherman</i><b> - </b><i> Nov 5, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														As I've been cleaning up the first pass code and adding debugging tests, I've been thinking more about the multiple octaves/Arduinos problem. Possibly a CAN bus could work? Or if we wanted to work in individual octaves, a master/slave configuration could also pass and have a single configuration for each octave. That would keep it simple, although we may need a large number of arduinos. We also need to power everything; I'll need to start thinking about that soon.
-														<p></p>
-														<p><i>Nick Sherman</i><b> - </b><i> Oct 25, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														Because our project could include many octaves, I started writing code that could be scaled for the number of octaves we have. I need to spend more time thinking about the best way to handle it, because I only have a fairly simple system that each Arduino Uno takes in 6 IR sensors data and outputs to 6 servos. Maybe I could do some communication so we have one Arduino reading everything in and the other moving the servos? Will get back to this.
-														<p></p>
-														<p><i>Nick Sherman</i><b> - </b><i> Oct 20, 2017</i></p></td>
-													</tr>
+													
+													
 
 
 
-													<tr>
-														<td>
-														Worked with the stepper motor. Currently, the code motor makes it small sections with pauses in the middle. I believe it might be my code. Will look for another way of writing my code.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 7, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														Still could not make the motor work continuously despite Chris and Yichen working with the stepper motor.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 9, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														With the help from Trent, we discovered the stepper motor needed more power than supplied. The pausing was caused from the power supply we were using saving the Arduino from becoming fried. The problem wasn't the code as we initially thought.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 10, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														The stepper motor is now receiving the 12V it requires with a power supply and stepper motor driver carrier. Accomplished with the help from Trent teaching how to use a stepper motor driver carrier.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 10, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														The motor code is simpler than what I initially created. The current code allows for simple adjustment of the motor speed.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 14, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														Missed the Thanksgiving meeting due to sickness, but I know what the team discussed. Seems orders were placed and an emphasize on blog posts for documentation. Will need to check asana and messages to properly catch up.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 22, 2017</i></p></td>
-													</tr>
+										
+													
+													
+												
 													<tr>
 														<td>
 														 Got the newer stepper motor code. Now, I can control the speed when needed for the scroller. 

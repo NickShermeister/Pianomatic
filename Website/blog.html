@@ -165,6 +165,26 @@
 														<p></p>
 														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 10, 2017</i></p></td>
 													</tr>
+													<td>
+														Sprint 2 has arrived! The box with the IR sensors and the fingers looked almost like a creepy hand, so some redesign will have to be done. We are still not putting the box in front of a piano because the we didn't have the chance to vertically secure the Servo plates. We are confident that the servos will have enough torque to press down the keys of an unweighted keyboard.
+														<p></p>
+														<p><i>Kian Raissian</i><b> - </b><i>Nov 10, 2017</i></p></td>
+													</tr>
+													<td>
+														New developments, it looks like using arms of any length, we will not have enough torque to push down a piano key. I think it's time to pivot to having each of the servo rotate to create a linear motion downward using a rack and pinion.
+														<p></p>
+														<p><i>Kian Raissian</i><b> - </b><i>Nov 10, 2017</i></p></td>
+													</tr>
+													<td>
+														So after some experimentation with rack and pinion configuration and some research on other devices that play pianos, I'm thinking that solenoids would be an ideal solution because we would not need to make any rack and pinion configuration and there is no torque, only downward force. Time to spec some solenoids
+														<p></p>
+														<p><i>Kian Raissian</i><b> - </b><i>Nov 13, 2017</i></p></td>
+													</tr>
+													<td>
+														It's Thanksgiving Break, so I have a little more time to work on the project and spec solenoids. Luckily, I found a cheap one that has the correct travel distance and Voltage/Current rating, while still being not exorbitant in price. I'm ordering 24! I also spent a couple hours completely redesigning the CAD that integrated the scroller and the solenoids with the correct spacing.
+														<p></p>
+														<p><i>Kian Raissian</i><b> - </b><i>Nov 13, 2017</i></p></td>
+													</tr>
 													<tr>
 														<td>
 														Oh boy. Time for some big changes. We have the whole pivot of going to solenoids now (which if anything makes my life easier), but I also need to figure out multiplexing/demultiplexing if we want to implement that. Looks pretty easy (mapping many inputs to one), but I'll need a multiplexer before I know for sure, plus we don't know if we are going to actually pursue this. The good news is we shouldn't need to demultiplex if we're okay with doing one Arduino per octave, as there are just enough pins to make it work. For now, it looks like we may stick to multiple arduinos due to budget though. At least it looks like we can power everything?
@@ -238,6 +258,11 @@
 														<p></p>
 														<p><i>Nick Sherman</i><b> - </b><i>Dec 1, 2017</i></p></td>
 													</tr>
+													<td>
+														The last Sprint! We had to integrate last night and I slept for 30 minutes in the hallway. Everything works, but not perfectly calibrated. IR sensors still need to be tuned, and the scroller isn't scrolling at a constant rate. The body also needs an aesthetic redesign.
+														<p></p>
+														<p><i>Kian Raissian</i><b> - </b><i>Dec 1, 2017</i></p></td>
+													</tr>
 													<tr>
 														<td>
 															So it's the start of our last week of instruction, and we don't have all of the materials for two octaves... Looks like our goal is now exactly one octave large, although we may be ordering a second octave's worth of supplies to see if we can sneak it in for Expo. I'm fairly certain we can't use pins 0/1 on the Arduino due to communication between the Arduino and our computers, so unfortunately we're back to two Arduinos per octave unless I get demultiplexing up now. Drafting the code for it, and I hope that it will work.
@@ -257,11 +282,7 @@
 														<p></p>
 														<p><i>Nick Sherman</i><b> - </b><i>Dec 8, 2017</i></p></td>
 													</tr>
-													<td>
-														Sprint 2 has arrived! The box with the IR sensors and the fingers looked almost like a creepy hand, so some redesign will have to be done. We are still not putting the box in front of a piano because the we didn't have the chance to vertically secure the Servo plates. We are confident that the servos will have enough torque to press down the keys of an unweighted keyboard.
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Nov 10, 2017</i></p></td>
-													</tr>
+													
 													<tr>
 														<td>
 															Well, our last sprint has come and gone. There was a lot of last-second work, and our project (mostly) worked. We had a lot of fun integrating everything, I ended up hardcoding Mary Had a Little Lamb last-second to make sure we could play a song while resetting our scroll, and we found that it worked very well and we were able to use that to present intermittantly. We tried playing some chords, but found that we needed to send too much power to the solenoids, and Aaron pointed out that we could burn them out, which we don't want to do before Expo. We also learned how hot our solenoids can get after playing for extended periods of time, which we hadn't considered before. Overall, I would say our project did what we wanted it to, but we didn't have the budget to make one of the quality we would have liked. It's too bad, but you live and you learn. Take care, and I hope to see you as I complete future projects.
@@ -348,37 +369,14 @@
 														Text Here
 														<p></p>
 														<p><i>Name</i><b> - </b><i>Month 00, 2017</i></p></td>
-													</tr>
+													</tr>									
 													
+																									
 													
-													
-													
-													<td>
-														Sprint 2 has arrived! The box with the IR sensors and the fingers looked almost like a creepy hand, so some redesign will have to be done. We are still not putting the box in front of a piano because the we didn't have the chance to vertically secure the Servo plates. We are confident that the servos will have enough torque to press down the keys of an unweighted keyboard.
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Nov 10, 2017</i></p></td>
-													</tr>
-													<td>
-														New developments, it looks like using arms of any length, we will not have enough torque to push down a piano key. I think it's time to pivot to having each of the servo rotate to create a linear motion downward using a rack and pinion.
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Nov 10, 2017</i></p></td>
-													</tr>
+											
 
-													<td>
-														So after some experimentation with rack and pinion configuration and some research on other devices that play pianos, I'm thinking that solenoids would be an ideal solution because we would not need to make any rack and pinion configuration and there is no torque, only downward force. Time to spec some solenoids
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Nov 13, 2017</i></p></td>
-													</tr>
-													<td>
-														It's Thanksgiving Break, so I have a little more time to work on the project and spec solenoids. Luckily, I found a cheap one that has the correct travel distance and Voltage/Current rating, while still being not exorbitant in price. I'm ordering 24! I also spent a couple hours completely redesigning the CAD that integrated the scroller and the solenoids with the correct spacing.
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Nov 13, 2017</i></p></td>
-													</tr>
-													<td>
-														The last Sprint! We had to integrate last night and I slept for 30 minutes in the hallway. Everything works, but not perfectly calibrated. IR sensors still need to be tuned, and the scroller isn't scrolling at a constant rate. The body also needs an aesthetic redesign.
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Dec 1, 2017</i></p></td>
-													</tr>
+													
+													
 													<td>
 														We have a new design in CAD! We had some problems with how vertically offset the solenoid bars were, so that needs to be fixed.
 														<p></p>

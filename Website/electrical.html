@@ -27,10 +27,14 @@
 
 					<!-- Nav -->
 					<nav id="nav">
-						<ul>
-							<li><a href="index.html" class="active">Home</a></li>
-						</ul>
-					</nav>
+                <ul>
+                    <li><a href="#intro" class="active">Introduction</a></li>
+                    <li><a href="#first">Systems</a></li>
+                    <li><a href="#second">The Team</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="sprints.html">Progress</a></li>
+                </ul>
+            </nav>
 
 				<!-- Main -->
 
@@ -38,12 +42,20 @@
 
 						<!-- Content -->
 							<section id="content" class="main">
-							<h2>A SAMPLE HEADLINE</h2>
-								TEXT BLAH
+							<h2>Electrical Overview</h2>
+							Our electrical system design was driven by the need to play 12 piano keys without overheating the components. Each key required one infrared sensor to receive input from a music sheet and one solenoid that pressed down the key. Power transistors were used to control the high-voltage solenoids with a stable power supply at 5V. All the sensors and solenoids were controlled by one Arduino. The Arduino used multiplexer chips to extend IO pin number capacity to 12 digital output and 12 analog input.
 
 							<p></p>
-							<h2>A SAMPLE HEADLINE 2</h2>
-							TEXT BLAH 2
+							<h2>Circuit Diagram</h2>
+							The circuits for the system were designed to achieve functionality with the minimum number of components, which allowed us to reproduce 12 copies of the same circuit within the budget.
+
+							The infrared sensor circuit consisted of an integrated infrared emitting diode and phototransistor and two resistors to provide the appropriate current. The circuits for the 12 sensors were soldered onto a protoboard and powered by an external 5V power supply.
+
+							The solenoid circuit consisted of a solenoid, an NPN power transistor, a flyback diode and a resistor to produce appropriate collector current. The flyback diodes were used to eliminate the sudden voltage spike from the solenoids when the power supply was interrupted. The circuit for the 12 solenoids were developed on a breadboard and powered by an external 15V power supply.
+
+							<p></p>
+							<h2>Motor Control</h2>
+							We chose a 12V, 2A stepped motor to create the scroller mechanism for producing sensor input. The stepper motor was powered by a Polulu motor driver chip that allowed micro-stepping and made it possible for us to adjust the tempo of the input feed.
 
 							<p></p>
 							</section>

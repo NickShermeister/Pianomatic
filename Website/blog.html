@@ -1,370 +1,370 @@
 <!DOCTYPE HTML>
 <!--
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+ Stellar by HTML5 UP
+ html5up.net | @ajlkn
+ Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+ -->
 <html>
-	<head>
-		<title>PianoMatic</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-	<body>
-
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Header -->
-					<header id="header">
-						<h1>Blog</h1>
-						<p>PianoMatic</p>
-					</header>
-
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-								<li><a href="index.html">Introduction</a></li>
-								<li><a href="index.html#first">Systems</a></li>
-								<li><a href="bio.html">The Team</a></li>
-								<li><a href="blog.html" class="active">Blog</a></li>
-								<li><a href="sprints.html">Progress</a></li>
-								<li><a href="bom.html">Bill of Materials</a></li>
-								<li><a href="images.html">Gallery</a></li>
-						</ul>
+    <head>
+        <title>PianoMatic</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    </head>
+    <body>
+        
+        <!-- Wrapper -->
+        <div id="wrapper">
+            
+            <!-- Header -->
+            <header id="header">
+                <h1>Blog</h1>
+                <p>PianoMatic</p>
+            </header>
+            
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Introduction</a></li>
+                    <li><a href="index.html#first">Systems</a></li>
+                    <li><a href="bio.html">The Team</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="sprints.html">Progress</a></li>
+                    <li><a href="bom.html">Bill of Materials</a></li>
+                    <li><a href="images.html">Gallery</a></li>
+                </ul>
             </nav>
-
-				<!-- Main -->
-
-					<div id="main">
-
-						<!-- Content -->
-							<section id="content" class="main">
-								<!-- Table -->
-									<section>
-										<div class="table-wrapper">
-											<table>
-												<tbody>
-												<!-- TO CREATE BLOG POST WITHOUT IMAGE COPY FROM "<tr>" TO "</tr>". PASTE BELOW LAST "</tr>" AND ENTER THE DATE AND YOUR TEXT -->
-
-													<tr>
-														<td>
-														We decided that we want to use infrared sensors for sensing the nodes. I can probably make use of the sensors we used in Lab 3 and see if they can function as we wanted.
-														<p></p>
-														<p><i>Yichen Jiang</i><b> - </b><i>Oct 20, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														Because our project could include many octaves, I started writing code that could be scaled for the number of octaves we have. I need to spend more time thinking about the best way to handle it, because I only have a fairly simple system that each Arduino Uno takes in 6 IR sensors data and outputs to 6 servos. Maybe I could do some communication so we have one Arduino reading everything in and the other moving the servos? Will get back to this.
-														<p></p>
-														<p><i>Nick Sherman</i><b> - </b><i> Oct 20, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														Today I worked on the website. I found a good template that we all decided looked nice and would be functional. We worked to fill out some of the basic information and structure of the website.
-														<p></p>
-														<p><i>Chris Aring</i><b> - </b><i>Oct 24, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														As I've been cleaning up the first pass code and adding debugging tests, I've been thinking more about the multiple octaves/Arduinos problem. Possibly a CAN bus could work? Or if we wanted to work in individual octaves, a master/slave configuration could also pass and have a single configuration for each octave. That would keep it simple, although we may need a large number of arduinos. We also need to power everything; I'll need to start thinking about that soon.
-														<p></p>
-														<p><i>Nick Sherman</i><b> - </b><i> Oct 25, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td><span class="image left"><img src="images/sprint1_1.jpg" alt="" /></span>
-														This is our project from the first sprint! Finger tips didn't operate as we desired and we need to figure out if the servos could provide enough torque for the "finger" to press down piano keys. Also the infrared sensors need more calibration to be able to identify black from white.
-														<p></p>
-														<p><i>Yichen Jiang</i><b> - </b><i>Oct 26, 2017</i></p></td>
-													</tr>
-													<td>
-														For this sprint, I measured the distance between the first six notes on a piano, and created a CAD that held the Servos with the correct horizontal offset. We attached hardboard L shaped arms to represent the fingers that play the Piano.
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Oct 27, 2017</i></p></td>
-													</tr>
-													<tr>
-                                                    <td>
-													  The first sprint is finished today! We finished building a proof of our idea and it worked! The infrared sensors had big margins of error but they showed the function of our MVP. To read black and white accurately we probably need better infrared sensors.
-														<p></p>
-														<p><i>Yichen Jiang</i><b> - </b><i>Oct 27, 2017</i></p>
-                                                    </td>
-													</tr>
-													<tr>
-                                                    <td>
-														Today I started work on the program that will parse midi files. I looked up information on the midi file format and created the first program. It is coded in C++.
-														<p></p>
-														<p><i>Chris Aring</i><b> - </b><i>Oct 31, 2017</i></p></td>
-													</tr>
-													<td>
-														After holding it up to a Piano, I realized the spacing between the Servos didn't exactly line up to a piano, so I respaced them to be correct.
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Oct 31, 2017</i></p></td>
-													</tr>
-													<td>
-														I'm working on creating a very simple box to hold the IR sensors on the back, the wires inside, and the fingers sticking out the front of the box. I learned about a super secure type of box joint using a 1 inch 6 screw and square nut. With this configuration, I also decided that having the Servos vertically stacked is a better idea.
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Nov 3, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														I did a lot more work on the midi parser. It now is able to parse basic information like tempo, notes, note timings, and other information that we will need eventiually. I found that midi files use variable length values for the time between events so I have to work to create a method to get the right values.
-														<p></p>
-														<p><i>Chris Aring</i><b> - </b><i>Nov 4, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														My Sprint 2 updates are now (hopefully) completely done for the code (I need all of the servos before I know for sure). After a lot of thought, I'm starting to think that a master/slave configuration may be best where one master reads in all of the IR sensors and then communicates the results to the slave. I feel like this is still very inefficient though; Maybe at the conclusion of this upcoming sprint I can get some good feedback on it? Also, I need to make sure that the power supplies we have will work.
-														<p></p>
-														<p><i>Nick Sherman</i><b> - </b><i> Nov 5, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														Worked with the stepper motor. Currently, the code motor makes it small sections with pauses in the middle. I believe it might be my code. Will look for another way of writing my code.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 7, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														I did a ton of soldering today. And now all the circuits for our 12 new infrared sensors were carefully organized on a single protoboard. The new sensors have higher sensitivity and can distinguish black from white. With the protoboard we should be able to better organize our electrical components and reduce the size of the enclosure box.
-														<p></p>
-														<p><i>Yichen Jiang</i><b> - </b><i>Nov 8, 2017</i></p></td>
-													</tr>
-													<td>
-														I figured out how to handle the variable length values and the parser is now able to detect every note and each note's start and end time. I now have to create a method of taking this information and printing it on a sheet as a physical note.
-														<p></p>
-														<p><i>Chris Aring</i><b> - </b><i>Nov 9, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														Still could not make the motor work continuously despite Chris and Yichen working with the stepper motor.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 9, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														Finally, end of the second sprint! Exciting news is that we have got all our infrared sensors mounted and functioning. We also managed to supply power to our 12 servos. I was having trouble controling the stepper motor earlier today. It turned out that Arduino motor shield wasn't enough to control the it. Our dear ninja Trent lent us a motor driver that could supply the necessary voltage and current. Then the motor moved! And our next goal with that is to build a robost scrolling mechanism that can feed the paper continuously.
-														<p></p>
-														<p><i>Yichen Jiang</i><b> - </b><i>Nov 10, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														With the help from Trent, we discovered the stepper motor needed more power than supplied. The pausing was caused from the power supply we were using saving the Arduino from becoming fried. The problem wasn't the code as we initially thought.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 10, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														The stepper motor is now receiving the 12V it requires with a power supply and stepper motor driver carrier. Accomplished with the help from Trent teaching how to use a stepper motor driver carrier.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 10, 2017</i></p></td>
-													</tr>
-													<td>
-														Sprint 2 has arrived! The box with the IR sensors and the fingers looked almost like a creepy hand, so some redesign will have to be done. We are still not putting the box in front of a piano because the we didn't have the chance to vertically secure the Servo plates. We are confident that the servos will have enough torque to press down the keys of an unweighted keyboard.
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Nov 10, 2017</i></p></td>
-													</tr>
-													<td>
-														New developments, it looks like using arms of any length, we will not have enough torque to push down a piano key. I think it's time to pivot to having each of the servo rotate to create a linear motion downward using a rack and pinion.
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Nov 10, 2017</i></p></td>
-													</tr>
-													<td>
-														So after some experimentation with rack and pinion configuration and some research on other devices that play pianos, I'm thinking that solenoids would be an ideal solution because we would not need to make any rack and pinion configuration and there is no torque, only downward force. Time to spec some solenoids
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Nov 13, 2017</i></p></td>
-													</tr>
-													<td>
-														It's Thanksgiving Break, so I have a little more time to work on the project and spec solenoids. Luckily, I found a cheap one that has the correct travel distance and Voltage/Current rating, while still being not exorbitant in price. I'm ordering 24! I also spent a couple hours completely redesigning the CAD that integrated the scroller and the solenoids with the correct spacing.
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Nov 13, 2017</i></p></td>
-													</tr>
-													<td>
-														Everything is mechanically finished! We have mounts for the protoboard, Arduino, Breadboards, IR sensors, and solenoids. We decided to add an aesthetic touch to our sides and Laser Raster a hand that looks like it is playing the piano. Very excited to integrate for demo day! Alot calibration and assembly
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Nov 13, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														Oh boy. Time for some big changes. We have the whole pivot of going to solenoids now (which if anything makes my life easier), but I also need to figure out multiplexing/demultiplexing if we want to implement that. Looks pretty easy (mapping many inputs to one), but I'll need a multiplexer before I know for sure, plus we don't know if we are going to actually pursue this. The good news is we shouldn't need to demultiplex if we're okay with doing one Arduino per octave, as there are just enough pins to make it work. For now, it looks like we may stick to multiple arduinos due to budget though. At least it looks like we can power everything?
-														<p></p>
-														<p><i>Nick Sherman</i><b> - </b><i>Nov 14, 2017 </i></p></td>
-													</tr>
-
-													<tr>
-														<td>
-														The motor code is simpler than what I initially created. The current code allows for simple adjustment of the motor speed.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 14, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														Bursting my head trying to think of a good scrolling mechanism today. The structure need to be able to hold the paper in tension and scroll at constant speed. Brain-storming with the ninjas helped me a lot in designing the mechainical structure. I also figured out the best way to mount the stepper motor on the rod: a set screw on the motor bushing!
-														<p></p>
-														<p><i>Yichen Jiang</i><b> - </b><i>Nov 15, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														So everything would be ready... but we're pivoting. Time to start looking into how to power solenoids and how much power everything will need again. We're also switching over to multiplexing, so time to draft some quote for that. It'll be a fun Thanksgiving.
-														<p></p>
-														<p><i>Nick Sherman</i><b> - </b><i>>Nov 16, 2017 </i></p></td>
-													</tr>
-													<tr>
-														<td>
-														Got the first version of the scroller manufactured today. The motor could run smoothly with my code. The problem is that the paper kept jumping instead of going up smoothly. The rubber sheet I applied on the rod appeared to be not functioning at all. Will figure something out after I get back from Thanksgiving break.
-														<p></p>
-														<p><i>Yichen Jiang</i><b> - </b><i>Nov 17, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														It's the day before Thanksgiving--must be a time for a blog post! We just finished our meeting, and we now have some solenoids specced/purchased, as well as power supplies and multiplexers. I'll be drafting up multiplexing code; it doesn't look that bad and I can just edit what we have so far. Happy Thanksgiving, and let's kick this project into high gear.
-														<p></p>
-														<p><i>Nick Sherman</i><b> - </b><i>Nov 22, 2017 </i></p></td>
-													</tr>
-													<tr>
-														<td>
-														Missed the Thanksgiving meeting due to sickness, but I know what the team discussed. Seems orders were placed and an emphasize on blog posts for documentation. Will need to check asana and messages to properly catch up.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 22, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														 Got the newer stepper motor code. Now, I can control the speed when needed for the scroller.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 28, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														The solenoids came in today! I think in order to drive the solenoids with Arduino we will need some sort of transistor circuits. However, all the transistors in the ECE stock room are all small signal transistors. Thankfully Stan bought us a TIP120 transistor from the local electronic store and it worked perfectly. We will have to drive to the store again tomorrow to buy enough transistors for all 12 solenoids.
-														<p></p>
-														<p><i>Yichen Jiang</i><b> - </b><i>Nov 29, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-															Alright, the basic multiplexer code is now up and running. It isn't as debuggable as I would like, but we can now multiplex, which menas one Arduino per octave now. At the rate Arduinos have met their demise, it seems like a good idea right now. Now that we're back t school, this project is really kicking into higher gear; I can't wait to see what we're able to create with the rest of the semester.
-														<p></p>
-														<p><i>Nick Sherman</i><b> - </b><i>Nov 29, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														Super tired after last night's sprint rush. Yesterday morning we went to You-do-it electronics and literally wiped clean their power transistor section. The circuit was built and functioning yesterday afternoon. We also made a second version of the scroller which was integrated on the bode panel. We spent a lot of time last night trying to integrate the solenoids and the infrared sensors, and we found the solenoids we had were of poor quality and they would break if we screw them in too hard... But eventually we got the solenoids to work with the sensors(kind of) and reached our MVP goals! Hurrah!
-														<p></p>
-														<p><i>Yichen Jiang</i><b> - </b><i>Dec 1, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-															Well, our drop dead "MVP" was due today... we were closer to dropping dead than finishing the MVP when presenting today. For some reason, we can't use all of the pins of the Arduino. To make things even better, we weren't reading as accurately as we would wish and need to improve the scroller and scrolls. The good news, is that we are pretty close to our actual MVP. It sounds like we're going to do another iteration before hte final version, so here's to fixing the playing problems and getting some sleep.
-														<p></p>
-														<p><i>Nick Sherman</i><b> - </b><i>Dec 1, 2017</i></p></td>
-													</tr>
-													<td>
-														The last Sprint! We had to integrate last night and I slept for 30 minutes in the hallway. Everything works, but not perfectly calibrated. IR sensors still need to be tuned, and the scroller isn't scrolling at a constant rate. The body also needs an aesthetic redesign.
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Dec 1, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-															So it's the start of our last week of instruction, and we don't have all of the materials for two octaves... Looks like our goal is now exactly one octave large, although we may be ordering a second octave's worth of supplies to see if we can sneak it in for Expo. I'm fairly certain we can't use pins 0/1 on the Arduino due to communication between the Arduino and our computers, so unfortunately we're back to two Arduinos per octave unless I get demultiplexing up now. Drafting the code for it, and I hope that it will work.
-														<p></p>
-														<p><i>Nick Sherman</i><b> - </b><i>Dec 4, 2017</i></p></td>
-													</tr>
-													<td>
-														We have a new design in CAD! We had some problems with how vertically offset the solenoid bars were, so that needs to be fixed.
-														<p></p>
-														<p><i>Kian Raissian</i><b> - </b><i>Dec 5, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														I reviewed all the circuits of our system and could confirm they all worked perfectly. Now the next step is to mount the breadboard and protoboard onto the mechanical structure neatly and sort the wires. We also had issues that the infrared sensors were not reading consistantly from the scroll. I think the problem was that the sensors were mounted too close the the scrolling sheet, while according to the sheet, the sensors should be at least 3mm apart from the object to be sensed. So we need to redesign the mechanical mount of the sensors.
-														<p></p>
-														<p><i>Yichen Jiang</i><b> - </b><i>Dec 6, 2017</i></p></td>
-													</tr>
-
-													<tr>
-														<td>
-															It's a bittersweet day, as it's our last day of instruction but our project isn't working yet. We have under a week to refabricate everything, finish debugging everything, and then get a working project. Easy-peasy, right? At least I'm fairly sure that our final design will look cool. I think I have demultiplexing working correctly but it just isn't working right now... hopefully I'll figure it out soon. I have to say, getting sick right before finals is annoying though; it means that I'm not working on POE as much until I feel better (hopefully tomorrow). We'll see, and hopefully you'll hear from me tomorrow.
-														<p></p>
-														<p><i>Nick Sherman</i><b> - </b><i>Dec 8, 2017</i></p></td>
-													</tr>
-
-													<tr>
-														<td>
-															Well, our last sprint has come and gone. There was a lot of last-second work, and our project (mostly) worked. We had a lot of fun integrating everything, I ended up hardcoding Mary Had a Little Lamb last-second to make sure we could play a song while resetting our scroll, and we found that it worked very well and we were able to use that to present intermittantly. We tried playing some chords, but found that we needed to send too much power to the solenoids, and Aaron pointed out that we could burn them out, which we don't want to do before Expo. We also learned how hot our solenoids can get after playing for extended periods of time, which we hadn't considered before. Overall, I would say our project did what we wanted it to, but we didn't have the budget to make one of the quality we would have liked. It's too bad, but you live and you learn. Take care, and I hope to see you as I complete future projects.
-															<p></p>
-														<p><i>Nick Sherman</i><b> - </b><i>Dec 11, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-															Alright, time for updates that I may have missed while I was sick. We have ordered parts for a second octave, although we probably won't have it done for POE. Right now, we're in survival mode, finiishing our project. We're getting there; we would be done but unfortunately there was some missizing and we need to reprint some things. In other news, I figured out two of our last big problems for software (excluding calibration). 1) We can't demultiplex because demultiplexing only allows for 1 output at a time. 2) We can use one Arduino per octave if we don't have an active Serial communication with our computer, so pins 0/1 don't do anything. As it's getting late, I'll head off for now, but I'm psyched to see what we finish in the next couple of days.
-														<p></p>
-														<p><i>Nick Sherman</i><b> - </b><i>Dec 11, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														Preparing for the demo today. All the electroic boards were mounted to the structure! NICE! The paper on the scoller was still not completely in tension, but we found out that this can be easily fixed by attaching a rubber band to the following scroller. After attaching the correctly sized scroll, we were able to see the whole system operate together at the same time! WOW
-														<p></p>
-														<p><i>Yichen Jiang</i><b> - </b><i>Dec 12, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														Improving from sprint 3’s mishap with tape, our scroll music sheets are taped from the back away from the sensors. Sprint 3 showed how tape facing the sensors could force all solenoids to be pressed down causing potential issues in the song and the solenoids themselves. The scoll music has been redesigned to properly align with the sensors.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Dec 12, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														The sensors are calibrated to properly detect the difference between the black lines representing the notes and the white of the page representing no note to be played. We believe to have the correct music scroll currently. For future music scrolls, the sensors must be calibrated properly for the new music sheets.  The scoll music has been redesigned to properly align with the sensors.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Dec 12, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														The solenoids appear to be working more reliably. We do not test the solenoids for long as to not to overheat and ruin the solenoids. Now we are focus on having the solenoids hitting the keys.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Dec 13, 2017</i></p></td>
-													</tr>
-
-													<tr>
-														<td>
-														Kian designed a new sensor mount allowing for better sensor detection. Chris and Yichen have worked with the new mount and agree in the improvement of the sensor detection making it harder to disrupt the sensors from outside sources.
-														<p></p>
-														<p><i>Raymundo Camacho</i><b> - </b><i>Dec 13, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
-														DEMO day was so great! Our project actually worked nicely during the demo. One problem that we spotted was that both the solenoids and the stepper motor got overheated after running for above 10 minutes consistantly. We need to be more careful with that in our EXPO demo to make sure we won't burn anything.
-														<p></p>
-														<p><i>Yichen Jiang</i><b> - </b><i>Dec 13, 2017</i></p></td>
-													</tr>
-
-												</tbody>
-												<tfoot>
-												</tfoot>
-											</table>
-										</div>
-									</section>
-							</section>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; Copyright © 2017 PianoMatic </p>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
+            
+            <!-- Main -->
+            
+            <div id="main">
+                
+                <!-- Content -->
+                <section id="content" class="main">
+                    <!-- Table -->
+                    <section>
+                        <div class="table-wrapper">
+                            <table>
+                                <tbody>
+                                    <!-- TO CREATE BLOG POST WITHOUT IMAGE COPY FROM "<tr>" TO "</tr>". PASTE BELOW LAST "</tr>" AND ENTER THE DATE AND YOUR TEXT -->
+                                    
+                                    <tr>
+                                        <td>
+                                            We decided that we want to use infrared sensors for sensing the nodes. I can probably make use of the sensors we used in Lab 3 and see if they can function as we wanted.
+                                            <p></p>
+                                            <p><i>Yichen Jiang</i><b> - </b><i>Oct 20, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Because our project could include many octaves, I started writing code that could be scaled for the number of octaves we have. I need to spend more time thinking about the best way to handle it, because I only have a fairly simple system that each Arduino Uno takes in 6 IR sensors data and outputs to 6 servos. Maybe I could do some communication so we have one Arduino reading everything in and the other moving the servos? Will get back to this.
+                                            <p></p>
+                                            <p><i>Nick Sherman</i><b> - </b><i> Oct 20, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Today I worked on the website. I found a good template that we all decided looked nice and would be functional. We worked to fill out some of the basic information and structure of the website.
+                                            <p></p>
+                                            <p><i>Chris Aring</i><b> - </b><i>Oct 24, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            As I've been cleaning up the first pass code and adding debugging tests, I've been thinking more about the multiple octaves/Arduinos problem. Possibly a CAN bus could work? Or if we wanted to work in individual octaves, a master/slave configuration could also pass and have a single configuration for each octave. That would keep it simple, although we may need a large number of arduinos. We also need to power everything; I'll need to start thinking about that soon.
+                                            <p></p>
+                                            <p><i>Nick Sherman</i><b> - </b><i> Oct 25, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="image left"><img src="images/sprint1_1.jpg" alt="" /></span>
+                                            This is our project from the first sprint! Finger tips didn't operate as we desired and we need to figure out if the servos could provide enough torque for the "finger" to press down piano keys. Also the infrared sensors need more calibration to be able to identify black from white.
+                                            <p></p>
+                                            <p><i>Yichen Jiang</i><b> - </b><i>Oct 26, 2017</i></p></td>
+                                    </tr>
+                                    <td>
+                                        For this sprint, I measured the distance between the first six notes on a piano, and created a CAD that held the Servos with the correct horizontal offset. We attached hardboard L shaped arms to represent the fingers that play the Piano.
+                                        <p></p>
+                                        <p><i>Kian Raissian</i><b> - </b><i>Oct 27, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            The first sprint is finished today! We finished building a proof of our idea and it worked! The infrared sensors had big margins of error but they showed the function of our MVP. To read black and white accurately we probably need better infrared sensors.
+                                            <p></p>
+                                            <p><i>Yichen Jiang</i><b> - </b><i>Oct 27, 2017</i></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Today I started work on the program that will parse midi files. I looked up information on the midi file format and created the first program. It is coded in C++.
+                                            <p></p>
+                                            <p><i>Chris Aring</i><b> - </b><i>Oct 31, 2017</i></p></td>
+                                    </tr>
+                                    <td>
+                                        After holding it up to a Piano, I realized the spacing between the Servos didn't exactly line up to a piano, so I respaced them to be correct.
+                                        <p></p>
+                                        <p><i>Kian Raissian</i><b> - </b><i>Oct 31, 2017</i></p></td>
+                                    </tr>
+                                    <td>
+                                        I'm working on creating a very simple box to hold the IR sensors on the back, the wires inside, and the fingers sticking out the front of the box. I learned about a super secure type of box joint using a 1 inch 6 screw and square nut. With this configuration, I also decided that having the Servos vertically stacked is a better idea.
+                                        <p></p>
+                                        <p><i>Kian Raissian</i><b> - </b><i>Nov 3, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            I did a lot more work on the midi parser. It now is able to parse basic information like tempo, notes, note timings, and other information that we will need eventiually. I found that midi files use variable length values for the time between events so I have to work to create a method to get the right values.
+                                            <p></p>
+                                            <p><i>Chris Aring</i><b> - </b><i>Nov 4, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            My Sprint 2 updates are now (hopefully) completely done for the code (I need all of the servos before I know for sure). After a lot of thought, I'm starting to think that a master/slave configuration may be best where one master reads in all of the IR sensors and then communicates the results to the slave. I feel like this is still very inefficient though; Maybe at the conclusion of this upcoming sprint I can get some good feedback on it? Also, I need to make sure that the power supplies we have will work.
+                                            <p></p>
+                                            <p><i>Nick Sherman</i><b> - </b><i> Nov 5, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Worked with the stepper motor. Currently, the code motor makes it small sections with pauses in the middle. I believe it might be my code. Will look for another way of writing my code.
+                                            <p></p>
+                                            <p><i>Raymundo Camacho</i><b> - </b><i>Nov 7, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            I did a ton of soldering today. And now all the circuits for our 12 new infrared sensors were carefully organized on a single protoboard. The new sensors have higher sensitivity and can distinguish black from white. With the protoboard we should be able to better organize our electrical components and reduce the size of the enclosure box.
+                                            <p></p>
+                                            <p><i>Yichen Jiang</i><b> - </b><i>Nov 8, 2017</i></p></td>
+                                    </tr>
+                                    <td>
+                                        I figured out how to handle the variable length values and the parser is now able to detect every note and each note's start and end time. I now have to create a method of taking this information and printing it on a sheet as a physical note.
+                                        <p></p>
+                                        <p><i>Chris Aring</i><b> - </b><i>Nov 9, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Still could not make the motor work continuously despite Chris and Yichen working with the stepper motor.
+                                            <p></p>
+                                            <p><i>Raymundo Camacho</i><b> - </b><i>Nov 9, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Finally, end of the second sprint! Exciting news is that we have got all our infrared sensors mounted and functioning. We also managed to supply power to our 12 servos. I was having trouble controling the stepper motor earlier today. It turned out that Arduino motor shield wasn't enough to control the it. Our dear ninja Trent lent us a motor driver that could supply the necessary voltage and current. Then the motor moved! And our next goal with that is to build a robost scrolling mechanism that can feed the paper continuously.
+                                            <p></p>
+                                            <p><i>Yichen Jiang</i><b> - </b><i>Nov 10, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            With the help from Trent, we discovered the stepper motor needed more power than supplied. The pausing was caused from the power supply we were using saving the Arduino from becoming fried. The problem wasn't the code as we initially thought.
+                                            <p></p>
+                                            <p><i>Raymundo Camacho</i><b> - </b><i>Nov 10, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            The stepper motor is now receiving the 12V it requires with a power supply and stepper motor driver carrier. Accomplished with the help from Trent teaching how to use a stepper motor driver carrier.
+                                            <p></p>
+                                            <p><i>Raymundo Camacho</i><b> - </b><i>Nov 10, 2017</i></p></td>
+                                    </tr>
+                                    <td>
+                                        Sprint 2 has arrived! The box with the IR sensors and the fingers looked almost like a creepy hand, so some redesign will have to be done. We are still not putting the box in front of a piano because the we didn't have the chance to vertically secure the Servo plates. We are confident that the servos will have enough torque to press down the keys of an unweighted keyboard.
+                                        <p></p>
+                                        <p><i>Kian Raissian</i><b> - </b><i>Nov 10, 2017</i></p></td>
+                                    </tr>
+                                    <td>
+                                        New developments, it looks like using arms of any length, we will not have enough torque to push down a piano key. I think it's time to pivot to having each of the servo rotate to create a linear motion downward using a rack and pinion.
+                                        <p></p>
+                                        <p><i>Kian Raissian</i><b> - </b><i>Nov 10, 2017</i></p></td>
+                                    </tr>
+                                    <td>
+                                        So after some experimentation with rack and pinion configuration and some research on other devices that play pianos, I'm thinking that solenoids would be an ideal solution because we would not need to make any rack and pinion configuration and there is no torque, only downward force. Time to spec some solenoids
+                                        <p></p>
+                                        <p><i>Kian Raissian</i><b> - </b><i>Nov 13, 2017</i></p></td>
+                                    </tr>
+                                    <td>
+                                        It's Thanksgiving Break, so I have a little more time to work on the project and spec solenoids. Luckily, I found a cheap one that has the correct travel distance and Voltage/Current rating, while still being not exorbitant in price. I'm ordering 24! I also spent a couple hours completely redesigning the CAD that integrated the scroller and the solenoids with the correct spacing.
+                                        <p></p>
+                                        <p><i>Kian Raissian</i><b> - </b><i>Nov 13, 2017</i></p></td>
+                                    </tr>
+                                    <td>
+                                        Everything is mechanically finished! We have mounts for the protoboard, Arduino, Breadboards, IR sensors, and solenoids. We decided to add an aesthetic touch to our sides and Laser Raster a hand that looks like it is playing the piano. Very excited to integrate for demo day! Alot calibration and assembly
+                                        <p></p>
+                                        <p><i>Kian Raissian</i><b> - </b><i>Nov 13, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Oh boy. Time for some big changes. We have the whole pivot of going to solenoids now (which if anything makes my life easier), but I also need to figure out multiplexing/demultiplexing if we want to implement that. Looks pretty easy (mapping many inputs to one), but I'll need a multiplexer before I know for sure, plus we don't know if we are going to actually pursue this. The good news is we shouldn't need to demultiplex if we're okay with doing one Arduino per octave, as there are just enough pins to make it work. For now, it looks like we may stick to multiple arduinos due to budget though. At least it looks like we can power everything?
+                                            <p></p>
+                                            <p><i>Nick Sherman</i><b> - </b><i>Nov 14, 2017 </i></p></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            The motor code is simpler than what I initially created. The current code allows for simple adjustment of the motor speed.
+                                            <p></p>
+                                            <p><i>Raymundo Camacho</i><b> - </b><i>Nov 14, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Bursting my head trying to think of a good scrolling mechanism today. The structure need to be able to hold the paper in tension and scroll at constant speed. Brain-storming with the ninjas helped me a lot in designing the mechainical structure. I also figured out the best way to mount the stepper motor on the rod: a set screw on the motor bushing!
+                                            <p></p>
+                                            <p><i>Yichen Jiang</i><b> - </b><i>Nov 15, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            So everything would be ready... but we're pivoting. Time to start looking into how to power solenoids and how much power everything will need again. We're also switching over to multiplexing, so time to draft some quote for that. It'll be a fun Thanksgiving.
+                                            <p></p>
+                                            <p><i>Nick Sherman</i><b> - </b><i>>Nov 16, 2017 </i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Got the first version of the scroller manufactured today. The motor could run smoothly with my code. The problem is that the paper kept jumping instead of going up smoothly. The rubber sheet I applied on the rod appeared to be not functioning at all. Will figure something out after I get back from Thanksgiving break.
+                                            <p></p>
+                                            <p><i>Yichen Jiang</i><b> - </b><i>Nov 17, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            It's the day before Thanksgiving--must be a time for a blog post! We just finished our meeting, and we now have some solenoids specced/purchased, as well as power supplies and multiplexers. I'll be drafting up multiplexing code; it doesn't look that bad and I can just edit what we have so far. Happy Thanksgiving, and let's kick this project into high gear.
+                                            <p></p>
+                                            <p><i>Nick Sherman</i><b> - </b><i>Nov 22, 2017 </i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Missed the Thanksgiving meeting due to sickness, but I know what the team discussed. Seems orders were placed and an emphasize on blog posts for documentation. Will need to check asana and messages to properly catch up.
+                                            <p></p>
+                                            <p><i>Raymundo Camacho</i><b> - </b><i>Nov 22, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Got the newer stepper motor code. Now, I can control the speed when needed for the scroller.
+                                            <p></p>
+                                            <p><i>Raymundo Camacho</i><b> - </b><i>Nov 28, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            The solenoids came in today! I think in order to drive the solenoids with Arduino we will need some sort of transistor circuits. However, all the transistors in the ECE stock room are all small signal transistors. Thankfully Stan bought us a TIP120 transistor from the local electronic store and it worked perfectly. We will have to drive to the store again tomorrow to buy enough transistors for all 12 solenoids.
+                                            <p></p>
+                                            <p><i>Yichen Jiang</i><b> - </b><i>Nov 29, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Alright, the basic multiplexer code is now up and running. It isn't as debuggable as I would like, but we can now multiplex, which menas one Arduino per octave now. At the rate Arduinos have met their demise, it seems like a good idea right now. Now that we're back t school, this project is really kicking into higher gear; I can't wait to see what we're able to create with the rest of the semester.
+                                            <p></p>
+                                            <p><i>Nick Sherman</i><b> - </b><i>Nov 29, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Super tired after last night's sprint rush. Yesterday morning we went to You-do-it electronics and literally wiped clean their power transistor section. The circuit was built and functioning yesterday afternoon. We also made a second version of the scroller which was integrated on the bode panel. We spent a lot of time last night trying to integrate the solenoids and the infrared sensors, and we found the solenoids we had were of poor quality and they would break if we screw them in too hard... But eventually we got the solenoids to work with the sensors(kind of) and reached our MVP goals! Hurrah!
+                                            <p></p>
+                                            <p><i>Yichen Jiang</i><b> - </b><i>Dec 1, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Well, our drop dead "MVP" was due today... we were closer to dropping dead than finishing the MVP when presenting today. For some reason, we can't use all of the pins of the Arduino. To make things even better, we weren't reading as accurately as we would wish and need to improve the scroller and scrolls. The good news, is that we are pretty close to our actual MVP. It sounds like we're going to do another iteration before hte final version, so here's to fixing the playing problems and getting some sleep.
+                                            <p></p>
+                                            <p><i>Nick Sherman</i><b> - </b><i>Dec 1, 2017</i></p></td>
+                                    </tr>
+                                    <td>
+                                        The last Sprint! We had to integrate last night and I slept for 30 minutes in the hallway. Everything works, but not perfectly calibrated. IR sensors still need to be tuned, and the scroller isn't scrolling at a constant rate. The body also needs an aesthetic redesign.
+                                        <p></p>
+                                        <p><i>Kian Raissian</i><b> - </b><i>Dec 1, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            So it's the start of our last week of instruction, and we don't have all of the materials for two octaves... Looks like our goal is now exactly one octave large, although we may be ordering a second octave's worth of supplies to see if we can sneak it in for Expo. I'm fairly certain we can't use pins 0/1 on the Arduino due to communication between the Arduino and our computers, so unfortunately we're back to two Arduinos per octave unless I get demultiplexing up now. Drafting the code for it, and I hope that it will work.
+                                            <p></p>
+                                            <p><i>Nick Sherman</i><b> - </b><i>Dec 4, 2017</i></p></td>
+                                    </tr>
+                                    <td>
+                                        We have a new design in CAD! We had some problems with how vertically offset the solenoid bars were, so that needs to be fixed.
+                                        <p></p>
+                                        <p><i>Kian Raissian</i><b> - </b><i>Dec 5, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            I reviewed all the circuits of our system and could confirm they all worked perfectly. Now the next step is to mount the breadboard and protoboard onto the mechanical structure neatly and sort the wires. We also had issues that the infrared sensors were not reading consistantly from the scroll. I think the problem was that the sensors were mounted too close the the scrolling sheet, while according to the sheet, the sensors should be at least 3mm apart from the object to be sensed. So we need to redesign the mechanical mount of the sensors.
+                                            <p></p>
+                                            <p><i>Yichen Jiang</i><b> - </b><i>Dec 6, 2017</i></p></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            It's a bittersweet day, as it's our last day of instruction but our project isn't working yet. We have under a week to refabricate everything, finish debugging everything, and then get a working project. Easy-peasy, right? At least I'm fairly sure that our final design will look cool. I think I have demultiplexing working correctly but it just isn't working right now... hopefully I'll figure it out soon. I have to say, getting sick right before finals is annoying though; it means that I'm not working on POE as much until I feel better (hopefully tomorrow). We'll see, and hopefully you'll hear from me tomorrow.
+                                            <p></p>
+                                            <p><i>Nick Sherman</i><b> - </b><i>Dec 8, 2017</i></p></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            Well, our last sprint has come and gone. There was a lot of last-second work, and our project (mostly) worked. We had a lot of fun integrating everything, I ended up hardcoding Mary Had a Little Lamb last-second to make sure we could play a song while resetting our scroll, and we found that it worked very well and we were able to use that to present intermittantly. We tried playing some chords, but found that we needed to send too much power to the solenoids, and Aaron pointed out that we could burn them out, which we don't want to do before Expo. We also learned how hot our solenoids can get after playing for extended periods of time, which we hadn't considered before. Overall, I would say our project did what we wanted it to, but we didn't have the budget to make one of the quality we would have liked. It's too bad, but you live and you learn. Take care, and I hope to see you as I complete future projects.
+                                            <p></p>
+                                            <p><i>Nick Sherman</i><b> - </b><i>Dec 11, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Alright, time for updates that I may have missed while I was sick. We have ordered parts for a second octave, although we probably won't have it done for POE. Right now, we're in survival mode, finiishing our project. We're getting there; we would be done but unfortunately there was some missizing and we need to reprint some things. In other news, I figured out two of our last big problems for software (excluding calibration). 1) We can't demultiplex because demultiplexing only allows for 1 output at a time. 2) We can use one Arduino per octave if we don't have an active Serial communication with our computer, so pins 0/1 don't do anything. As it's getting late, I'll head off for now, but I'm psyched to see what we finish in the next couple of days.
+                                            <p></p>
+                                            <p><i>Nick Sherman</i><b> - </b><i>Dec 11, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Preparing for the demo today. All the electroic boards were mounted to the structure! NICE! The paper on the scoller was still not completely in tension, but we found out that this can be easily fixed by attaching a rubber band to the following scroller. After attaching the correctly sized scroll, we were able to see the whole system operate together at the same time! WOW
+                                            <p></p>
+                                            <p><i>Yichen Jiang</i><b> - </b><i>Dec 12, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Improving from sprint 3’s mishap with tape, our scroll music sheets are taped from the back away from the sensors. Sprint 3 showed how tape facing the sensors could force all solenoids to be pressed down causing potential issues in the song and the solenoids themselves. The scoll music has been redesigned to properly align with the sensors.
+                                            <p></p>
+                                            <p><i>Raymundo Camacho</i><b> - </b><i>Dec 12, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            The sensors are calibrated to properly detect the difference between the black lines representing the notes and the white of the page representing no note to be played. We believe to have the correct music scroll currently. For future music scrolls, the sensors must be calibrated properly for the new music sheets.  The scoll music has been redesigned to properly align with the sensors.
+                                            <p></p>
+                                            <p><i>Raymundo Camacho</i><b> - </b><i>Dec 12, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            The solenoids appear to be working more reliably. We do not test the solenoids for long as to not to overheat and ruin the solenoids. Now we are focus on having the solenoids hitting the keys.
+                                            <p></p>
+                                            <p><i>Raymundo Camacho</i><b> - </b><i>Dec 13, 2017</i></p></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            Kian designed a new sensor mount allowing for better sensor detection. Chris and Yichen have worked with the new mount and agree in the improvement of the sensor detection making it harder to disrupt the sensors from outside sources.
+                                            <p></p>
+                                            <p><i>Raymundo Camacho</i><b> - </b><i>Dec 13, 2017</i></p></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            DEMO day was so great! Our project actually worked nicely during the demo. One problem that we spotted was that both the solenoids and the stepper motor got overheated after running for above 10 minutes consistantly. We need to be more careful with that in our EXPO demo to make sure we won't burn anything.
+                                            <p></p>
+                                            <p><i>Yichen Jiang</i><b> - </b><i>Dec 13, 2017</i></p></td>
+                                    </tr>
+                                    
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </section>
+                </section>
+                
+            </div>
+            
+            <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">&copy; Copyright © 2017 PianoMatic </p>
+            </footer>
+            
+        </div>
+        
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="assets/js/main.js"></script>
+        
+    </body>
 </html>

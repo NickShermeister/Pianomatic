@@ -1,92 +1,108 @@
 <!DOCTYPE HTML>
 <!--
- Stellar by HTML5 UP
- html5up.net | @ajlkn
- Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
- -->
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-    <head>
-        <title>Software</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-    </head>
-    <body>
-        
-        <!-- Wrapper -->
-        <div id="wrapper">
-            
-            <!-- Header -->
-            <header id="header">
-                <h1>Software</h1>
-                <p>PianoMatic</p>
-            </header>
-            
-            <!-- Nav -->
-            <nav id="nav">
+	<head>
+		<title>Software</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Software</h1>
+						<p>PianoMatic</p>
+					</header>
+
+					<!-- Nav -->
+					<nav id="nav">
                 <ul>
-                    <li><a href="index.html">Introduction</a></li>
-                    <li><a href="index.html#first" class="active">Systems</a></li>
+                    <li><a href="index.html" class="active">Introduction</a></li>
+                    <li><a href="index.html">Systems</a></li>
                     <li><a href="bio.html">The Team</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="sprints.html">Progress</a></li>
-                    <li><a href="bom.html">Bill of Materials</a></li>
-                    <li><a href="images.html">Gallery</a></li>
+                    <li><a href="images.html">Images</a></li>
                 </ul>
             </nav>
-            
-            <!-- Main -->
-            
-            <div id="main">
-                
-                <!-- Content -->
-                <section id="content" class="main">
-                    <h2>IR Sensor/Solenoid Controls</h2>
-                    For IR sensing and solenoid control, we created a program for one Arduino that multiplexes eight of the IR sensors' inputs, directly takes in 4, and direclty outputs to all solenoids. This allows a 12-note octave to be controlled by one Pianomatic system. Multiplexing works by using digial outputs to tell a multiplexer which of 8 inputs it should flip between. Multiplexing is necessary in this system due to the number of inputs/outputs we need to control simultaneously and because you cannot demultiplex and hold the value for a system. Something important to note is that you can't allow Serial communication if you use every pin in an Arduino because pins 0/1 are used for Rx/Tx for Serial, and attempting to use them will result in problems with your Arduino. If you want to see the evolution of our code between sprints, feel free to check out our <a href = "https://github.com/NickShermeister/Pianomatic">Github here</a>.
-                    
-                </section>
-                
-                <section id="content" class="main">
-                    <h2>Convert Midi</h2>
-                    We created a program in C++ that allowed us to take Midi files and convert them to 'drawn' notes that we could print out on a roll.
-                    
-                    We input a Midi file and copy it to a memory buffer that we can parse through and modify. We parse out information from the header chunk and track chunks to get information such as tempo, notes, and note timing.
-                    
-                    From this we output to a text file. We use the box unicode charactor to represent notes. Each charactor represents a quarter note so we fill in as many spaces and box unicode charactors to make up each note and blank space. The image below shows what the text file looks like after the program takes a midi file, parses it, and prints the notes to a text file.
-                    
-                    <div class="box alt">
-                        <div class="row uniform">
-                            <div class="12u"><span class="image fit"><img src="images/final_chris.png" alt="" /></span></div>
-                        </div>
-                        
-                        There are two main classes. The main class holds the functions that copy the midi file to a buffer (memory block), parse the buffer, and print the notes to a text file. The other class, Notes, holds information about each note such as its starting and ending time and the note it represents. The code could be split into better and more well-defined classes, but what we have now is functional. We are working to make the code cleaner. The summarized flow of the code is below.
-                        
-                        <div class="box alt">
-                            <div class="row uniform">
-                                <div class="12u"><span class="image fit"><img src="images/diagram_chris.png" alt="" /></span></div>
-                            </div>
-                            </section>
-                
-            </div>
-            
-            <!-- Footer -->
-            <footer id="footer">
-                <p class="copyright">&copy; Copyright © 2017 PianoMatic </p>
-            </footer>
-            
-        </div>
-        
-        <!-- Scripts -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.scrollex.min.js"></script>
-        <script src="assets/js/jquery.scrolly.min.js"></script>
-        <script src="assets/js/skel.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-        <script src="assets/js/main.js"></script>
-        
-    </body>
+
+				<!-- Main -->
+
+					<div id="main">
+
+						<!-- Content -->
+						<section id="content" class="main">
+						<h2>IR Sensor/Solenoid Controls</h2>
+						<div class="box alt">
+										<div class="row uniform">
+											<div class="12u"><span class="image fit"><img src="images/IRduino.png" alt="" /></span></div>
+											</div>
+						1) Overview
+						2) What it does
+						3) Image
+						Both IR sensing and the solenoids were controlled through one Arduino. We were able to implement this through multiplexing, a process that allows for one Arduino pin to read/write to multiple (although not simultaneously). Without multiplexing, an Arduino Uno does not have enough Analog pins to run a full octave. It is also important to note that because we use pins 0/1, you will be unable to use Serial, because communication will be blocked from the Arduino to other devices.
+
+						The code itself is fairly simple, as we have a setup function that sets the Arduino up for running the program, then a main loop that runs a different function depending on what the user wants to and uploaded to the Arduino. The user defines this through changing the variable "program_to_run". Assuming that a user is reading from the scroller, the Arduino then proceeds to run the "player" function, which first reads in from all IR sensors and keeps track of where the highest value above the bounds of what constitutes a note is for readin values. It then loops through all solenoid outputs and outputs "LOW" to all except the solenoid whose position matches that of the highest value. It is possible that no sensor reads in higher than the bouds, at which point no note will be played. In this case, speed is determined by the stepper motor.
+
+						If a user decides to play one of the preprogrammed songs (currently Mary had a Little Lamb is the only supported song, however we will soon include other classics like Twinkle Twinkle Little Star and a one-octave Megalovania, courtesy of Jeremy Ryan).
+
+						For the full code, please <a href = "https://github.com/NickShermeister/Pianomatic/blob/master/Final_Sensing_Code/Final_Sensing_Code.ino">check it out here</a>. If you want to see the iterations leading up to this, you can go up a folder and view our prior sprints' code.
+
+							For IR sensing and solenoid control, we created a program for one Arduino that multiplexes eight of the IR sensors' inputs, directly takes in 4, and direclty outputs to all solenoids. This allows a 12-note octave to be controlled by one Pianomatic system. Multiplexing works by using digial outputs to tell a multiplexer which of 8 inputs it should flip between. Multiplexing is necessary in this system due to the number of inputs/outputs we need to control simultaneously and because you cannot demultiplex and hold the value for a system. Something important to note is that you can't allow Serial communication if you use every pin in an Arduino because pins 0/1 are used for Rx/Tx for Serial, and attempting to use them will result in problems with your Arduino. If you want to see the evolution of our code between sprints, feel free to check out our <a href = "https://github.com/NickShermeister/Pianomatic">Github here</a>.
+
+						</section>
+
+							<section id="content" class="main">
+							<h2>Convert Midi</h2>
+								We created a program in C++ that allowed us to take Midi files and convert them to 'drawn' notes that we could print out on a roll.
+
+								We input a Midi file and copy it to a memory buffer that we can parse through and modify. We parse out information from the header chunk and track chunks to get information such as tempo, notes, and note timing.
+
+								From this we output to a text file. We use the box unicode charactor to represent notes. Each charactor represents a quarter note so we fill in as many spaces and box unicode charactors to make up each note and blank space.
+
+
+							</section>
+
+						<section>
+
+							<section id="content" class="main">
+							<h2>Stepper Motor</h2>
+							<div class="box alt">
+											<div class="row uniform">
+												<div class="12u"><span class="image fit"*0.5><img src="images/stepperMotor" alt="" /></span></div>
+												</div>
+								The stepper motor is simply controlled with a program that allows for constant stepping of the motor. Once turned on, the stepper motor will continue stepping indefinitely (we did not have time to work in an automatic stop). For this code, please view <a href = "https://github.com/NickShermeister/Pianomatic/tree/master/Stepper_motor"> this Github file</a>.
+
+						</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Copyright © 2017 PianoMatic </p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>

@@ -31,8 +31,8 @@
                     <li><a href="index.html" class="active">Introduction</a></li>
                     <li><a href="index.html">Systems</a></li>
                     <li><a href="bio.html">The Team</a></li>
-                    <li><a href="blog.html">Blog</a></li>
                     <li><a href="sprints.html">Progress</a></li>
+                    <li><a href="images.html">Images</a></li>
                 </ul>
             </nav>
 
@@ -82,12 +82,6 @@
 													</tr>
 													<tr>
 														<td>
-														The servos were acting really sad today... They just couldn't reliably provide enough force to press down the keys. We should probably try using something more powerful.
-														<p></p>
-														<p><i>Yichen Jiang</i><b> - </b><i>Nov 9, 2017</i></p></td>
-													</tr>
-													<tr>
-														<td>
 														Finally, end of the second sprint! Exciting news is that we have got all our infrared sensors mounted and functioning. We also managed to supply power to our 12 servos. I was having trouble controling the stepper motor earlier today. It turned out that Arduino motor shield wasn't enough to control the it. Our dear ninja Trent lent us a motor driver that could supply the necessary voltage and current. Then the motor moved! And our next goal with that is to build a robost scrolling mechanism that can feed the paper continuously.
 														<p></p>
 														<p><i>Yichen Jiang</i><b> - </b><i>Nov 10, 2017</i></p></td>
@@ -103,6 +97,36 @@
 														Got the first version of the scroller manufactured today. The motor could run smoothly with my code. The problem is that the paper kept jumping instead of going up smoothly. The rubber sheet I applied on the rod appeared to be not functioning at all. Will figure something out after I get back from Thanksgiving break.
 														<p></p>
 														<p><i>Yichen Jiang</i><b> - </b><i>Nov 17, 2017</i></p></td>
+													</tr>
+													<tr>
+														<td>
+														The solenoids came in today! I think in order to drive the solenoids with Arduino we will need some sort of transistor circuits. However, all the transistors in the ECE stock room are all small signal transistors. Thankfully Stan bought us a TIP120 transistor from the local electronic store and it worked perfectly. We will have to drive to the store again tomorrow to buy enough transistors for all 12 solenoids.
+														<p></p>
+														<p><i>Yichen Jiang</i><b> - </b><i>Nov 29, 2017</i></p></td>
+													</tr>
+													<tr>
+														<td>
+														Super tired after last night's sprint rush. Yesterday morning we went to You-do-it electronics and literally wiped clean their power transistor section. The circuit was built and functioning yesterday afternoon. We also made a second version of the scroller which was integrated on the bode panel. We spent a lot of time last night trying to integrate the solenoids and the infrared sensors, and we found the solenoids we had were of poor quality and they would break if we screw them in too hard... But eventually we got the solenoids to work with the sensors(kind of) and reached our MVP goals! Hurrah!
+														<p></p>
+														<p><i>Yichen Jiang</i><b> - </b><i>Dec 1, 2017</i></p></td>
+													</tr>
+													<tr>
+														<td>
+														I reviewed all the circuits of our system and could confirm they all worked perfectly. Now the next step is to mount the breadboard and protoboard onto the mechanical structure neatly and sort the wires. We also had issues that the infrared sensors were not reading consistantly from the scroll. I think the problem was that the sensors were mounted too close the the scrolling sheet, while according to the sheet, the sensors should be at least 3mm apart from the object to be sensed. So we need to redesign the mechanical mount of the sensors.
+														<p></p>
+														<p><i>Yichen Jiang</i><b> - </b><i>Dec 6, 2017</i></p></td>
+													</tr>
+													<tr>
+														<td>
+														Preparing for the demo today. All the electroic boards were mounted to the structure! NICE! The paper on the scoller was still not completely in tension, but we found out that this can be easily fixed by attaching a rubber band to the following scroller. After attaching the correctly sized scroll, we were able to see the whole system operate together at the same time! WOW
+														<p></p>
+														<p><i>Yichen Jiang</i><b> - </b><i>Dec 12, 2017</i></p></td>
+													</tr>
+													<tr>
+														<td>
+														DEMO day was so great! Our project actually worked nicely during the demo. One problem that we spotted was that both the solenoids and the stepper motor got overheated after running for above 10 minutes consistantly. We need to be more careful with that in our EXPO demo to make sure we won't burn anything. 
+														<p></p>
+														<p><i>Yichen Jiang</i><b> - </b><i>Dec 13, 2017</i></p></td>
 													</tr>
 													<tr>
 														Today I started work on the program that will parse midi files. I looked up information on the midi file format and created the first program. It is coded in C++.
@@ -231,6 +255,18 @@
 														The motor code is simpler than what I initially created. The current code allows for simple adjustment of the motor speed.
 														<p></p>
 														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 14, 2017</i></p></td>
+													</tr>
+													<tr>
+														<td>
+														Missed the Thanksgiving meeting due to sickness, but I know what the team discussed. Seems orders were placed and an emphasize on blog posts for documentation. Will need to check asana and messages to properly catch up.
+														<p></p>
+														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 22, 2017</i></p></td>
+													</tr>
+													<tr>
+														<td>
+														 Got the newer stepper motor code. Now, I can control the speed when needed for the scroller. 
+														<p></p>
+														<p><i>Raymundo Camacho</i><b> - </b><i>Nov 28, 2017</i></p></td>
 													</tr>
 													<tr>
 														<td>

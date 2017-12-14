@@ -27,33 +27,33 @@
 
 					<!-- Nav -->
 					<nav id="nav">
-                <ul>
-                    <li><a href="index.html" class="active">Introduction</a></li>
-                    <li><a href="index.html">Systems</a></li>
-                    <li><a href="bio.html">The Team</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="sprints.html">Progress</a></li>
-                    <li><a href="images.html">Gallery</a></li>
-                </ul>
+						<ul>
+								<li><a href="#intro">Introduction</a></li>
+								<li><a href="#first" class="active">Systems</a></li>
+								<li><a href="#second">The Team</a></li>
+								<li><a href="blog.html">Blog</a></li>
+								<li><a href="sprints.html">Progress</a></li>
+								<li><a href="images.html">Gallery</a></li>
+						</ul>
             </nav>
 
 				<!-- Main -->
-				
+
 					<div id="main">
-					
+
 						<!-- Content -->
 							<section id="content" class="main">
 							<h2>The System</h2>
 							The body of the mechanical system in comprised of laser cut 1/4 inch medium density fiberboard parts that hold the solenoids and the IR sensors. 3D printed parts that hold the protoboard, the breadboards, and the Arduino are screwed to the inside of the side panels. The solenoids are mounted to two bars that intersect the side panels at the appropriate horizontal and vertical distances to hold them directly above the white and black keys of the piano. The scroller that reads the music is integrated towards the back of the system.
 							<p></p>
-							<h2>The Fingers</h2>	
-							The fingers of the system are solenoids that are mounted above each of the keys and mounted to the side panels. Originally, we had planned to use mini servos that hold L shaped fingers to press the keys down. However, after further examination of the servos and the requirements to press down the keys on a keyboard, the we concluded that the servos did not have the required torque to press down the keys, even on an unweighted piano. We then considered using a rack and pinion configuration, but pivoted again when we realized that we might be able to use linear solenoids. It took a few days to find a solenoid that met our price, stroke length, voltage, and current requirements. The solenoids are mounted to two bars, one that hold the solenoids that play the black keys, and one that holds the white key solenoids. 
+							<h2>The Fingers</h2>
+							The fingers of the system are solenoids that are mounted above each of the keys and mounted to the side panels. Originally, we had planned to use mini servos that hold L shaped fingers to press the keys down. However, after further examination of the servos and the requirements to press down the keys on a keyboard, the we concluded that the servos did not have the required torque to press down the keys, even on an unweighted piano. We then considered using a rack and pinion configuration, but pivoted again when we realized that we might be able to use linear solenoids. It took a few days to find a solenoid that met our price, stroke length, voltage, and current requirements. The solenoids are mounted to two bars, one that hold the solenoids that play the black keys, and one that holds the white key solenoids.
 							<p></p>
 							<h2>The Eyes </h2>
-							The eyes of the mechanism are 12 IR sensors that are located at the back of Pianomatic for the player-piano sheet music to scroll over. Each of the 12 IR sensors represent a note on the chromatic C scale. The music sheet with the black bars that represent the notes of the piece being played is scrolled in front of the array of IR sensors using a stepper motor. The motor is connected to the top aluminum rod that curls the sheet music by 3D printed bushings that are inserted into the rod and then into the side panel of Pianomatic. When the scroller is turned on, the black bars are scrolled in front of the corresponding IR sensors, which trigger the correct solenoid using Serial communication. 
+							The eyes of the mechanism are 12 IR sensors that are located at the back of Pianomatic for the player-piano sheet music to scroll over. Each of the 12 IR sensors represent a note on the chromatic C scale. The music sheet with the black bars that represent the notes of the piece being played is scrolled in front of the array of IR sensors using a stepper motor. The motor is connected to the top aluminum rod that curls the sheet music by 3D printed bushings that are inserted into the rod and then into the side panel of Pianomatic. When the scroller is turned on, the black bars are scrolled in front of the corresponding IR sensors, which trigger the correct solenoid using Serial communication.
 							<p></p>
 							</section>
-							
+
 					</div>
 
 				<!-- Footer -->

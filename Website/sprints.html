@@ -15,16 +15,16 @@
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     </head>
     <body>
-        
+
         <!-- Wrapper -->
         <div id="wrapper">
-            
+
             <!-- Header -->
             <header id="header">
                 <h1>Progress</h1>
                 <p>PianoMatic</p>
             </header>
-            
+
             <!-- Nav -->
             <nav id="nav">
                 <ul>
@@ -41,21 +41,21 @@
             <!-- Content -->
             <div id="main">
                 <section id="content" class="main">
-                    
+
                     <h1>Sprint 1</h1>
                     <p>Our first iteration of Pianomatic was a cardboard box with infrared sensors on the back and servos in the front. A servo plate had the servos aligned in a V-formation with arms of various heights attached to it. The infrared sensors were capable of reading digital inputs to move the appropriate servo. The code implemented allowed for as many servos as an Arduino could support for piano playing. A rough design of our website was created allowing us to document our progress through the coming weeks. Having completed a rough design of the Pianomatic we planned on having enough servos and infrared sensors for playing an octave and attaching a scroller on the back. We believe the scroller component will give us the most trouble as the musical notes have to be perfectly aligned with the sensors. Otherwise the wrong note or multiple notes will be played.</p>
                     <div class="box alt">
                         <div class="row uniform">
-                            
+
                             <div class="12u$"><span class="image fit"><img src="images/s11.JPG" alt="" /></span></div>
                         </div>
                     </div>
-                    
+
                     <h1>Sprint 2</h1>
                     <p>Improvements from our first sprint are easily seen in the design of our box. The box is made out of plywood and with an enclosed design.  A mount for the array of infrared sensors is located in the back while the servo mount located in the front. New sensors were implemented allowing for precise readings for easier calibration. Our music sheet code is capable of taking MIDI files and converting them into printed notes. We have a stepper motor moving continuously for the scroller. We will work on making the scroller component and make our box more compact with mounts for the electrical components like the arduinos and bread boards boards. The scroller component will give us the most issues. The scroll music has to be designed to properly align with the array of sensors, and the scroller and scroll music have to be at the desired tempo. If either case is not done correctly, the wrong notes will be played.</p>
                     <div class="box alt">
                         <div class="row uniform">
-                            
+
                             <div class="4u"><span class="image fit"><img src="images/sp2.JPG" alt="" /></span></div>
                             <div class="4u"><span class="image fit"><img src="images/sp22.JPG" alt="" /></span></div>
                             <div class="4u"><span class="image fit"><img src="images/sp23.JPG" alt="" /></span></div>
@@ -65,23 +65,36 @@
                     <p>Continuing on improving our overall design, the enclosed box has the scroller on the back as part of the box rather than a separate attachment. New sensor mount is close enough to be able to properly read the musical notes being run by the scroller. Bugs with the notes software were taken care of allowing for long sets of notes to be printed and aligned the notes with the appropriate sensor. Pivoting from the servos, we are implementing solenoids capable of pressing down with 5 Newtons of force. The code for the servos was modified for the solenoids allowing us to play the white key of an octave. For the demo, we will work on getting the solenoids for black keys of the octave up and running. The scroller and scroll music will be properly aligned and calibrated with the sensors. The solenoids will likely provide us with the most trouble as the solenoids together will require high voltage to give them enough force to press the keys reliably.</p>
                     <div class="box alt">
                         <div class="row uniform">
-                            
+
                             <div class="4u"><span class="image fit"><img src="images/file29.JPG" alt="" /></span></div>
                             <div class="4u"><span class="image fit"><img src="images/file32.JPG" alt="" /></span></div>
                             <div class="4u"><span class="image fit"><img src="images/sp23.JPG" alt="" /></span></div>
                         </div>
                     </div>
+
+                  </div>
+                  <h1>Sprint 4/Conclusion</h1>
+                  <p>
+                  Working until the presentation period, we refabricated our casing for Pianomatic. We calibrated the IR sensors and created a mount that allows for higher accuracy when reading music. We also successfully played our test keyboard (provided by Siena). Our first song was "Mary had a Little Lamb," which we played first with a hardcoded version to ascertain that the Pianomatic was placed correctly to play all of the notes and then through the IR sensors reading the notes off of a scroll. We learned that our solenoids require a additional power when pressing black keys, so although we are able to we were advised to not put 18 Volts through solenoids rated for 12 Volts, so we have adjusted accordingly. We also are careful to draw too much power when playing chords. Overall, however, we would judge our project to be successful, and if we had the budget to buy more powerful solenoids it would have worked better than anticipated.</p>
+                  <div class="box alt">
+                      <div class="row uniform">
+
+                          <div class="4u"><span class="image fit"><img src="images/file22.jpg" alt="" /></span></div>
+                          <div class="4u"><span class="image fit"><img src="images/file26.jpg" alt="" /></span></div>
+                          <div class="4u"><span class="image fit"><img src="images/file24.jpg" alt="" /></span></div>
+                      </div>
+                  </div>
                 </section>
             </div>
-            
-            
+
+
             <!-- Footer -->
             <footer id="footer">
                 <p class="copyright">&copy; Copyright © 2017 PianoMatic </p>
             </footer>
-            
+
         </div>
-        
+
         <!-- Scripts -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/jquery.scrollex.min.js"></script>
@@ -90,6 +103,6 @@
         <script src="assets/js/util.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
-        
+
     </body>
 </html>

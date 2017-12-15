@@ -15,16 +15,16 @@
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     </head>
     <body>
-        
+
         <!-- Wrapper -->
         <div id="wrapper">
-            
+
             <!-- Header -->
             <header id="header">
                 <h1>Software</h1>
                 <p>PianoMatic</p>
             </header>
-            
+
             <!-- Nav -->
             <nav id="nav">
                 <ul>
@@ -36,11 +36,11 @@
                     <li><a href="images.html">Images</a></li>
                 </ul>
             </nav>
-            
+
             <!-- Main -->
-            
+
             <div id="main">
-                
+
                 <!-- Content -->
                 <section id="content" class="main">
                     <h2>IR Sensor/Solenoid Controls</h2>
@@ -52,48 +52,48 @@
                         If a user decides to play one of the preprogrammed songs (currently Mary had a Little Lamb is the only supported song, however we will soon include other classics like Twinkle Twinkle Little Star and a one-octave Megalovania, courtesy of Jeremy Ryan).
                         <p></p>
                         For the full code, please <a href = "https://github.com/NickShermeister/Pianomatic/blob/master/Final_Sensing_Code/Final_Sensing_Code.ino">check it out here</a>. If you want to see the iterations leading up to this, you can go up a folder and view our prior sprints' code.
-                        
+
                 </section>
-                
+
                 <section id="content" class="main">
                     <h2>Convert Midi</h2>
-                    We created a program in C++ that allowed us to take Midi files and convert them to 'drawn' notes that we could print out on a roll.
-                    
+                    We created a program in C++ that allowed us to take Midi files and convert them to 'drawn' notes that we could print out on a roll. If you wish to look at the code, feel free to check it out <a href = "https://github.com/NickShermeister/Pianomatic">here</a>.
+
                     We input a Midi file and copy it to a memory buffer that we can parse through and modify. We parse out information from the header chunk and track chunks to get information such as tempo, notes, and note timing.
-                    
+
                     From this we output to a text file. We use the box unicode charactor to represent notes. Each charactor represents a quarter note so we fill in as many spaces and box unicode charactors to make up each note and blank space. The image below shows what the text file looks like after the program takes a midi file, parses it, and prints the notes to a text file.
-                    
+
                     <div class="box alt">
                         <div class="row uniform">
                             <div class="12u"><span class="image fit"><img src="images/final_chris.png" alt="" /></span></div>
                         </div>
-                        
+
                         There are two main classes. The main class holds the functions that copy the midi file to a buffer (memory block), parse the buffer, and print the notes to a text file. The other class, Notes, holds information about each note such as its starting and ending time and the note it represents. The code could be split into better and more well-defined classes, but what we have now is functional. We are working to make the code cleaner. The summarized flow of the code is below.
-                        
+
                         <div class="box alt">
                             <div class="row uniform">
                                 <div class="12u"><span class="image fit"><img src="images/diagram_chris.png" alt="" /></span></div>
                             </div>
                             </section>
-                
+
                 <section id="content" class="main">
                     <h2>Stepper Motor</h2>
                     <span class="image fit"><img src="images/stepperMotor.jpg" alt=""/></span>
-                    
-                    
-                    The stepper motor is simply controlled with a program that allows for constant stepping of the motor. Once turned on, the stepper motor will continue stepping indefinitely (we did not have time to work in an automatic stop). For this code, please view <a href = "https://github.com/NickShermeister/Pianomatic/tree/master/Stepper_motor"> this Github file</a>.
-                    
+
+
+                    The stepper motor is simply controlled with a program that allows for constant stepping of the motor. Once turned on, the stepper motor will continue stepping indefinitely (we did not have time to work in an automatic stop). For this code, please view <a href = "https://github.com/NickShermeister/Pianomatic/tree/master/Stepper_motor"> this Github file</a>. Looking forward, we plan on creating a basic interface for your computer to aid in speed adjustment.
+
                 </section>
-                
+
             </div>
-            
+
             <!-- Footer -->
             <footer id="footer">
                 <p class="copyright">&copy; Copyright © 2017 PianoMatic </p>
             </footer>
-            
+
         </div>
-        
+
         <!-- Scripts -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/jquery.scrollex.min.js"></script>
@@ -102,6 +102,6 @@
         <script src="assets/js/util.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
-        
+
     </body>
 </html>

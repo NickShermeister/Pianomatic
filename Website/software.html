@@ -44,23 +44,16 @@
                 <!-- Content -->
                 <section id="content" class="main">
                     <h2>IR Sensor/Solenoid Controls</h2>
-                        <p><span class="image left"><img src="images/IRduino.png" alt=""/></span>
+                    <span class="image right"><img src="images/IRduino.png" alt="" /></span>
+                        Both IR sensing and the solenoids were controlled through one Arduino, and through the code diagrammed above and found <a href = "https://github.com/NickShermeister/Pianomatic/blob/master/Final_Sensing_Code/Final_Sensing_Code.ino">here</a>. We were able to implement this through multiplexing, a process that allows for one Arduino pin to read/write to multiple (although not simultaneously). Without multiplexing, an Arduino Uno does not have enough Analog pins to run a full octave. It is also important to note that because we use pins 0/1, you will be unable to use Serial, because communication will be blocked from the Arduino to other devices.
+                        <p></p>
+                        The code itself is fairly simple, as we have a setup function that sets the Arduino up for running the program, then a main loop that runs a different function depending on what the user wants to and uploaded to the Arduino. The user defines this through changing the variable "program_to_run". Assuming that a user is reading from the scroller, the Arduino then proceeds to run the "player" function, which first reads in from all IR sensors and keeps track of where the highest value above the bounds of what constitutes a note is for readin values. It then loops through all solenoid outputs and outputs "LOW" to all except the solenoid whose position matches that of the highest value. It is possible that no sensor reads in higher than the bouds, at which point no note will be played. In this case, speed is determined by the stepper motor.
+                        <p></p>
+                        If a user decides to play one of the preprogrammed songs (currently Mary had a Little Lamb is the only supported song, however we will soon include other classics like Twinkle Twinkle Little Star and a one-octave Megalovania, courtesy of Jeremy Ryan).
+                        <p></p>
+                        For the full code, please <a href = "https://github.com/NickShermeister/Pianomatic/blob/master/Final_Sensing_Code/Final_Sensing_Code.ino">check it out here</a>. If you want to see the iterations leading up to this, you can go up a folder and view our prior sprints' code.
                         
-                        1) Overview
-                        2) What it does
-                        3) Image
-                        Both IR sensing and the solenoids were controlled through one Arduino. We were able to implement this through multiplexing, a process that allows for one Arduino pin to read/write to multiple (although not simultaneously). Without multiplexing, an Arduino Uno does not have enough Analog pins to run a full octave. It is also important to note that because we use pins 0/1, you will be unable to use Serial, because communication will be blocked from the Arduino to other devices.
-
-                            Both IR sensing and the solenoids were controlled through one Arduino, and through the code diagrammed above and found <a href = "https://github.com/NickShermeister/Pianomatic/blob/master/Final_Sensing_Code/Final_Sensing_Code.ino">here</a>. We were able to implement this through multiplexing, a process that allows for one Arduino pin to read/write to multiple (although not simultaneously). Without multiplexing, an Arduino Uno does not have enough Analog pins to run a full octave. It is also important to note that because we use pins 0/1, you will be unable to use Serial, because communication will be blocked from the Arduino to other devices.
-                            </p
-                            <p></p>
-                            The code itself is fairly simple, as we have a setup function that sets the Arduino up for running the program, then a main loop that runs a different function depending on what the user wants to and uploaded to the Arduino. The user defines this through changing the variable "program_to_run". Assuming that a user is reading from the scroller, the Arduino then proceeds to run the "player" function, which first reads in from all IR sensors and keeps track of where the highest value above the bounds of what constitutes a note is for readin values. It then loops through all solenoid outputs and outputs "LOW" to all except the solenoid whose position matches that of the highest value. It is possible that no sensor reads in higher than the bouds, at which point no note will be played. In this case, speed is determined by the stepper motor.
-                            <p></p>
-                            If a user decides to play one of the preprogrammed songs, they can select it by changing the variable called "program_to_run" to a number other than 0 or 1. (Currently Mary had a Little Lamb is the only supported song, however we will soon include other classics like Twinkle Twinkle Little Star and a one-octave Megalovania, courtesy of Jeremy Ryan.)
-                            <p></p>
-                            For the full code, please <a href = "https://github.com/NickShermeister/Pianomatic/blob/master/Final_Sensing_Code/Final_Sensing_Code.ino">check it out here</a>. If you want to see the iterations leading up to this, you can go up a folder and view our prior sprints' code.
-                            
-                            </section>
+                </section>
                 
                 <section id="content" class="main">
                     <h2>Convert Midi</h2>
@@ -85,7 +78,7 @@
                 
                 <section id="content" class="main">
                     <h2>Stepper Motor</h2>
-                    <span class="image"><img src="images/stepperMotor.jpg" alt=""/></span>
+                    <span class="image fit"><img src="images/stepperMotor.jpg" alt=""/></span>
                     
                     
                     The stepper motor is simply controlled with a program that allows for constant stepping of the motor. Once turned on, the stepper motor will continue stepping indefinitely (we did not have time to work in an automatic stop). For this code, please view <a href = "https://github.com/NickShermeister/Pianomatic/tree/master/Stepper_motor"> this Github file</a>.
